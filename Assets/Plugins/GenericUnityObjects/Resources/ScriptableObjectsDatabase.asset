@@ -41,8 +41,16 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Unity.Postprocessing.Editor
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
   _values:
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: UnityEngine.GameObject, UnityEngine.CoreModule
+    - _collection:
+      - _typeNameAndAssembly: GladiusVFX, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f3d9224568c51e14aa3aef7191b2cb03,
+        z_RuntimeSet_GameObject
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_810286fb27cfd0847969472e82fe3655,
+        z_RuntimeSet_GladiusVFX
   - _keys: []
     _values: []
   - _keys: []
@@ -73,6 +81,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Boolean, mscorlib
     - _collection:
       - _typeNameAndAssembly: System.Int32, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: GladiusVFX, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_4a855697a10e0034aa6dbdd3d0c6403a,
         z_Variable_InputListener
@@ -84,6 +94,8 @@ MonoBehaviour:
         z_Variable_Boolean
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2a959e928323fea40bdaa13e405acf63,
         z_Variable_Int32
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_7880684abbba2974eac62d9906b7d1c9,
+        z_Variable_GladiusVFX
   - _keys: []
     _values: []
   - _keys: []

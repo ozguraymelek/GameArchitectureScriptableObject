@@ -25,8 +25,20 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: System.Int32, mscorlib
     _guid: 
+  - _typeNameAndAssembly: UnityEngine.GameObject, UnityEngine.CoreModule
+    _guid: 
+  - _typeNameAndAssembly: GladiusVFX, Assembly-CSharp
+    _guid: 5bd6f6558bd0c3247ad09cfd42356443
   _genericArgumentValues:
-  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.GameObject, UnityEngine.CoreModule
+        _guid: 
+      _assemblyGUID: f3d9224568c51e14aa3aef7191b2cb03
+    - _arguments:
+      - _typeNameAndAssembly: GladiusVFX, Assembly-CSharp
+        _guid: 5bd6f6558bd0c3247ad09cfd42356443
+      _assemblyGUID: 810286fb27cfd0847969472e82fe3655
   - _array: []
   - _array: []
   - _array: []
@@ -62,6 +74,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Int32, mscorlib
         _guid: 
       _assemblyGUID: 2a959e928323fea40bdaa13e405acf63
+    - _arguments:
+      - _typeNameAndAssembly: GladiusVFX, Assembly-CSharp
+        _guid: 5bd6f6558bd0c3247ad09cfd42356443
+      _assemblyGUID: 7880684abbba2974eac62d9906b7d1c9
   - _array: []
   - _array: []
   - _array: []
@@ -111,6 +127,23 @@ MonoBehaviour:
       _argNames:
       - T
   - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+      _guid: 35f1f711725d47ef9c32084694a183c9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.RuntimeSet`1, GenericScriptableArchitecture
+      _guid: c310ebaa7e1d4da39f89d2340c56c267
+      AssemblyGUID: 
+      _argNames:
+      - TUnityObject
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.RuntimeSet`1, GenericScriptableArchitecture
+      _guid: c310ebaa7e1d4da39f89d2340c56c267
+      AssemblyGUID: 
+      _argNames:
+      - TUnityObject
     - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
       _guid: 35f1f711725d47ef9c32084694a183c9
       AssemblyGUID: 

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1980340402, guid: 7880684abbba2974eac62d9906b7d1c9, type: 3}
+  m_Name: Gladius VFX
+  m_EditorClassIdentifier: 
+  _description: 
+  _initialValue: {fileID: -2206281557396807547, guid: afe4a55614efba74fb19c46da3958cb5,
+    type: 3}
+  _variableHelper:
+    StackTrace:
+      Enabled: 0
+    Value: {fileID: 0}
+    ListenersExpanded: 0

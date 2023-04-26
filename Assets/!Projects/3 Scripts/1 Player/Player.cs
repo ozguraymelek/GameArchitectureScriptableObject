@@ -21,9 +21,12 @@ namespace Nacho.Controller
         public PlayerBaseAttackState CurrentAttackState { get; set; }
         
         [Header("Components")] 
+        [SerializeField] internal Transform weaponTr;
         [SerializeField] internal Animator animator;
         [SerializeField] internal Rigidbody rb;
         [SerializeField] internal CinemachineVirtualCamera playerVirtualCamera;
+
+        public GladiusVFX activeVFX;
         
         [Header("Settings /player")]
         public PlayerDirection playerCurrentDirection;
