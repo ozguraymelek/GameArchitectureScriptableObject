@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402cb5eb17974d24bb00263b59dc709c, type: 3}
+  m_Name: ScriptableObjectsDatabase
+  m_EditorClassIdentifier: 
+  _keys:
+  - _typeNameAndAssembly: GenericScriptableArchitecture.RuntimeSet`1, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`1, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`2, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`3, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Constant`1, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.VariableWithHistory`1, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`1,
+      GenericScriptableArchitecture.Timeline
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`2,
+      GenericScriptableArchitecture.Timeline
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`3,
+      GenericScriptableArchitecture.Timeline
+  - _typeNameAndAssembly: UnityEditor.Rendering.DebugState`1, Unity.RenderPipelines.Core.Editor
+  - _typeNameAndAssembly: Unity.Cloud.Collaborate.Common.ScriptableObjectSingleton`1,
+      Unity.CollabProxy.Editor
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePath`1,
+      Unity.RenderPipelines.Universal.Editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePathInspector`2,
+      Unity.RenderPipelines.Universal.Editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
+      Unity.RenderPipelines.Universal.Editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Unity.Postprocessing.Editor
+  - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+  _values:
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: System.String, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: System.Boolean, mscorlib
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_0fddd6dbe7b05c144bacd2888e44927a,
+        z_Constant_String
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_9b4c46f7430ebb94e89074c209f26faf,
+        z_Constant_Boolean
+  - _keys: []
+    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Nacho._Projects.SCRIPTS.Player.Input.InputListener,
+          Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: UnityEngine.Vector2, UnityEngine.CoreModule
+    - _collection:
+      - _typeNameAndAssembly: System.Single, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: System.Boolean, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: System.Int32, mscorlib
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_4a855697a10e0034aa6dbdd3d0c6403a,
+        z_Variable_InputListener
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2182f44c64678124c8621b09f99507dc,
+        z_Variable_Vector2
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_57fad721519cabc4091f2e70f6988e84,
+        z_Variable_Single
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_cf13b3d1c94a8b441a117ef7e1cc5b88,
+        z_Variable_Boolean
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2a959e928323fea40bdaa13e405acf63,
+        z_Variable_Int32
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []

@@ -1,0 +1,92 @@
+﻿@startuml
+
+hide empty description
+
+namespace meta {
+    'Finite State Machine base classes
+    class BaseState
+    class BaseSubState
+    class BaseDecision
+    class BaseTransition
+    class BaseAction
+    
+    'base classes relationships
+    ScriptableObject o-left[#red,thickness=3]- BaseState
+    ScriptableObject o-right[#red,thickness=3]- BaseSubState
+    ScriptableObject o-down[#red,thickness=3]- BaseDecision
+    ScriptableObject o-up[#red,thickness=3]- BaseTransition
+    ScriptableObject o-right[#red,thickness=3]- BaseAction
+}
+
+'STATE------------------------------------------------------
+meta.BaseState <|--down[#blue,thickness=1] State
+meta.BaseState <|-down[#blue,thickness=1] RemainState
+
+namespace base_state_objects #DDDDDD {
+
+    namespace idle #DDDDDD{
+        'Finite State Machine idle objects
+        object NormalIdleState
+        object NinjaIdleState
+        object AggressiveIdleState
+    }
+    
+    namespace walk #DDDDDD{
+         'Finite State Machine walk objects
+         object ForwardWalkState
+         object BackwardWalkState
+         object RightWalkState
+         object LeftWalkState
+         object RightBackwardWalkState
+         object LeftBackwardWalkState 
+    }
+    
+    namespace run #DDDDDD{
+         'Finite State Machine run objects
+         object ForwardRunState
+         object RightRunState
+         object LeftRunState
+    }
+    
+    namespace remain #DDDDDD{
+         'Finite State Machine remain objects
+         object RemainInState
+    }
+}
+
+base_state_objects.remain x-[#purple,thickness=2] RemainState
+base_state_objects.idle x-[#orange,thickness=2] State
+base_state_objects.walk x-[#orange,thickness=2] State
+base_state_objects.run x-[#orange,thickness=2] State
+'--------------------------------------------------------------------
+
+'SUB STATE------------------------------------------------------------------
+meta.BaseSubState <|--down[#blue,thickness=1] SubState
+meta.BaseSubState <|-down[#blue,thickness=1] RemainSubState
+
+namespace sub_state_objects #DDDDDD {
+
+    namespace normal_move #DDDDDD {
+        object Idle
+        object Walk
+        object Run
+    }
+    
+    namespace remain_sub #DDDDDD {
+        object RemainInSubState
+    }
+}
+
+sub_state_objects.remain_sub x-left[#yellowgreen,thickness=2] SubState
+sub_state_objects.normal_move x-[#olive,thickness=2] RemainSubState
+'--------------------------------------------------------------------------
+
+'DECISION------------------------------------------------------------------
+namespace decisions #DDDDDD {
+    class PlayerMoving
+    class PlayerNotMoving
+}
+
+meta.BaseDecision <|--down[#blue,thickness=1] decisions
+'--------------------------------------------------------------------------
+@enduml

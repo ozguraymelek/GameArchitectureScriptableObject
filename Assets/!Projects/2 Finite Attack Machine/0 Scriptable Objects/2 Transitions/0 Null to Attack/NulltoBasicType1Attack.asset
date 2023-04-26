@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67cfe89fe85b021478079d694ac16bd4, type: 3}
+  m_Name: NulltoBasicType1Attack
+  m_EditorClassIdentifier: 
+  Decision: {fileID: 11400000, guid: 3deecd8f297e2854ea8556f84e8eb6fb, type: 2}
+  NewState: {fileID: 11400000, guid: 815dc04739dc1f64e82b184008d5eb80, type: 2}
+  StayState: {fileID: 11400000, guid: 4db2b716b1f0d224ea81196549587493, type: 2}

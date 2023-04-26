@@ -1,0 +1,263 @@
+﻿@startuml
+
+<style>
+  diamond {
+    BackgroundColor #21B6A8
+    LineColor #000000
+    LineThickness 3
+}
+</style>
+
+hide empty description
+
+scale 800 width
+
+state NormalMove  {
+    state input_a <<inputPin>>
+    state output_a <<outputPin>>
+    
+    state Idle_NM{
+        'input
+        state input_aa <<inputPin>>
+        
+        'output pin connections
+        IdleNormal_NM -[dotted,#FF0000]-> output_aa <<outputPin>>
+        IdleAggressive_NM -[dotted,#FF0000]-> output_aa <<outputPin>>
+        IdleNinja_NM -[dotted,#FF0000]-> output_aa <<outputPin>>
+                
+        state aa0_to_aaa <<choice>>
+        state aa0_to_aab <<choice>>
+        state aa0_to_aac <<choice>>
+        
+        'input pin connections
+        input_aa -left[dotted,#59981A]-> aa0_to_aaa
+        aa0_to_aaa -[#A020F0,dashed]-> IdleNormal_NM : #player skill point 0
+        
+        input_aa -right[dotted,#59981A]-> aa0_to_aab
+        aa0_to_aab -[#A020F0,dashed]-> IdleAggressive_NM : #player skill\npoint between\n(50,..)
+        
+        input_aa -down[dotted,#59981A]-> aa0_to_aac
+        aa0_to_aac -[#A020F0,dashed]-> IdleNinja_NM : #player skill point between (0,50]
+    }
+    
+    state Walk_NM{
+        'input
+        state input_ab <<inputPin>>
+        
+        'output pin connections
+        WalkForward_NM -[dotted,#FF0000]-> output_ab <<outputPin>>
+        WalkLeft_NM -[dotted,#FF0000]-> output_ab <<outputPin>>
+        WalkRight_NM -[dotted,#FF0000]-> output_ab <<outputPin>>
+        WalkBackward_NM -[dotted,#FF0000]-> output_ab <<outputPin>>
+        WalkLeftBackward_NM -[dotted,#FF0000]-> output_ab <<outputPin>>
+        WalkRightBackward_NM -[dotted,#FF0000]-> output_ab <<outputPin>>
+        
+        'conditions
+        state ab_to_abF <<choice>>
+        state ab_to_abL <<choice>>
+        state ab_to_abR <<choice>>
+        state ab_to_abB <<choice>>
+        state ab_to_abLB <<choice>>
+        state ab_to_abRB <<choice>>
+        
+        input_ab -[dotted,#59981A]-> ab_to_abF
+        ab_to_abF -[#A020F0,dashed]-> WalkForward_NM : #input.z > 0\ninput.x = 0
+    
+        input_ab -[dotted,#59981A]-> ab_to_abL
+        ab_to_abL -[#A020F0,dashed]-> WalkLeft_NM : #input.x < 0\ninput.z = 0
+        
+        input_ab -[dotted,#59981A]-> ab_to_abR
+        ab_to_abR -[#A020F0,dashed]-> WalkRight_NM : #input.x > 0\ninput.z = 0
+        
+        input_ab -[dotted,#59981A]-> ab_to_abB
+        ab_to_abB -[#A020F0,dashed]-> WalkBackward_NM : #input.z < 0\ninput.x = 0
+        
+        input_ab -[dotted,#59981A]-> ab_to_abLB
+        ab_to_abLB -[#A020F0,dashed]-> WalkLeftBackward_NM : #input.x < 0\ninput.z < 0
+        
+        input_ab -[dotted,#59981A]-> ab_to_abRB
+        ab_to_abRB -[#A020F0,dashed]-> WalkRightBackward_NM : #input.x > 0\ninput.z > 0
+    }
+    
+    state Run_NM{
+        'input
+        state input_ac <<inputPin>>
+        
+        'output pin connections
+        RunForward_NM -[dotted,#FF0000]-> output_ac <<outputPin>>
+        RunLeft_NM -[dotted,#FF0000]-> output_ac <<outputPin>>
+        RunRight_NM -[dotted,#FF0000]-> output_ac <<outputPin>>
+        
+        'conditions
+        state ac_to_acF <<choice>>
+        state ac_to_acL <<choice>>
+        state ac_to_acR <<choice>>
+        
+        input_ac -[dotted,#59981A]-> ac_to_acF
+        ac_to_acF -[#A020F0,dashed]-> RunForward_NM : #shift pressed\ninput.z > 0\ninput.x = 0
+    
+        input_ac -[dotted,#59981A]-> ac_to_acL
+        ac_to_acL -[#A020F0,dashed]-> RunLeft_NM : #shift pressed\ninput.x < 0\ninput.z = 0
+        
+        input_ac -[dotted,#59981A]-> ac_to_acR
+        ac_to_acR -[#A020F0,dashed]-> RunRight_NM : \ninput.x > 0\ninput.z = 0
+    }
+}
+
+[*] --> input_a : player interact for the input
+
+'pin NormalMove connections
+    ' none to idle_nm
+    input_a -down[#7954A1]-> input_aa 
+
+    ' idle_nm to walk_nm
+    output_aa -down[#7954A1]--> input_ab : ~input.x or input.z is not "0"\n and isWalking will be true
+    
+    ' walk_nm to run_nm
+    output_ab -down[#7954A1]--> input_ac : ~if the shift key is held down"\n and isRunning will be true
+
+    ' run_nm to walk_nm
+    output_ac -up[dotted,#7954A1]--> input_ab : ~if the shift key is released"\n and isRunning will be false
+    
+    ' walk_nm to idle_nm
+    output_ab -up[dotted,#7954A1]--> input_aa : ~input.x and input.z is "0""\n and isWalking will be false
+    
+    ' idle_nm to Cover
+    output_aa -[dotted,#0000FF]-> output_a : -if the "q" key is pressed\nwhile the player is touching the wall\nand isCovering value will be true
+    
+    ' walk_nm to Cover
+    output_ab -[dotted,#0000FF]-> output_a : -if the "q" key is pressed\nwhile the player is touching the wall\nand isCovering value will be true
+    
+    ' run_nm to Cover
+    output_ac -[dotted,#0000FF]-> output_a : -if the player touches\na coverable wall while running\nand isCovering value will be true
+
+state Cover{
+    'input
+    state input_b <<inputPin>>
+    state output_b <<outputPin>>
+    
+    state Idle_C{
+        'input
+        state input_ba <<inputPin>>
+        state output_ba <<outputPin>>
+        
+        'output pin connections
+        output_ba -right[#0000FF]-> output_b <<outputPin>> : -if the q key is\npressed again
+    }
+    
+    state Walk_C{
+        'input
+        state input_bb <<inputPin>>
+        state output_bb <<outputPin>>
+        
+        'output pin connections
+        output_bb -up[#0000FF]-> output_b <<outputPin>> : -if the q key is\npressed again
+    }
+}
+
+state Crouch{
+    'input
+    state input_c <<inputPin>>
+    state output_c <<outputPin>>
+    
+    state Idle_Crouch{
+        state input_ca <<inputPin>>
+        state output_ca <<outputPin>>
+       
+    }
+    
+    state Walk_Crouch{
+        state input_cb <<inputPin>>
+        state output_cb <<outputPin>>
+    }
+}
+
+state Jump{
+    'input
+    state input_d <<inputPin>>
+    state output_d <<outputPin>>
+    
+    'conditions
+    state ad_to_ad1 <<choice>>
+    state ad_to_ad2 <<choice>>
+    state ad_to_ad3 <<choice>>
+    
+    state Jump_1{
+        state input_da <<inputPin>>
+        state output_da <<outputPin>>
+    }
+    
+    state Jump_2{
+        state input_db <<inputPin>>
+        state output_db <<outputPin>>
+    }    
+
+    state Jump_3{
+        state input_dc <<inputPin>>
+        state output_dc <<outputPin>>
+    }
+    
+    input_d -[dotted,#59981A]-> ad_to_ad1
+    ad_to_ad1 -[#A020F0,dashed]--> Jump_1 : #jumpCount=0
+    
+    input_d -[dotted,#59981A]-> ad_to_ad2
+    ad_to_ad2 -[#A020F0,dashed]--> Jump_2 : #jumpCount=1
+    
+    input_d -[dotted,#59981A]-> ad_to_ad3
+    ad_to_ad3 -[#A020F0,dashed]--> Jump_3 : #jumpCount=2
+    
+    'outputs
+    output_dc -[dotted,#FF0000]-> output_d
+    output_db -[dotted,#FF0000]-> output_d
+    output_da -[dotted,#FF0000]-> output_d
+    
+    output_d --> input_a
+}
+
+'pin Connections
+    input_c --> input_ca : #the player's\nisWalking value is false
+    input_c --> input_cb : #the player's\nisWalking value is true
+
+' idle_nm to Cover
+    output_aa -[dotted,#68BBE3]-> output_a 
+    
+' walk_nm to Cover
+    output_ab -[dotted,#68BBE3]-> output_a
+
+' idle_nm to Jump
+    output_aa -[dotted,#746C70]-> output_a 
+    
+' walk_nm to Jump
+    output_ab -[dotted,#746C70]-> output_a
+
+'pin Cover Connections
+    input_b --> input_ba
+    ' idle_c to walk_c
+    output_ba -[#7954A1]-> input_bb : ~coverInput.x is not "0"
+    ' walk_c to idle_c
+    output_bb -[#7954A1]-> input_ba : ~coverInput.x is "0"
+    
+'pin Crouch Connections
+    ' idle_crouch to walk_crouch
+    output_ca -[#7954A1]-> input_cb : ~input.x or\n input.z is not "0"
+    
+    ' walk_crouch to idle_crouch
+    output_cb -[#7954A1]-> input_ca : ~input.x and\n input.z is "0"
+    
+'pin Base State Connections
+' Normal Move to Cover
+    output_a -[#0000FF]-> input_b 
+
+' Cover to Normal Move    
+    output_b -> input_a 
+    
+' Crouch to Normal Move    
+    output_c -> input_a 
+    
+' Normal Move to Crouch   
+    output_a -[#68BBE3]-> input_c : -if the player's\nisCrouching value is true
+    
+' Normal Move to Jump
+    output_a -[#94C973]-> input_d : -if the player's\nisJumping value is true
+    
+@enduml

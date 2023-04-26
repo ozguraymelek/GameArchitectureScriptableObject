@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04e00c890644cc9adb05d0c17f5ee62, type: 3}
+  m_Name: SOGenerationDatabase
+  m_EditorClassIdentifier: 
+  _genericArgumentKeys:
+  - _typeNameAndAssembly: Nacho._Projects.SCRIPTS.Player.Input.InputListener, Assembly-CSharp
+    _guid: e9245dcea54af14458def0d4b64f5cf2
+  - _typeNameAndAssembly: UnityEngine.Vector2, UnityEngine.CoreModule
+    _guid: 
+  - _typeNameAndAssembly: System.Single, mscorlib
+    _guid: 
+  - _typeNameAndAssembly: System.Boolean, mscorlib
+    _guid: 
+  - _typeNameAndAssembly: System.String, mscorlib
+    _guid: 
+  - _typeNameAndAssembly: System.Int32, mscorlib
+    _guid: 
+  _genericArgumentValues:
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: System.String, mscorlib
+        _guid: 
+      _assemblyGUID: 0fddd6dbe7b05c144bacd2888e44927a
+    - _arguments:
+      - _typeNameAndAssembly: System.Boolean, mscorlib
+        _guid: 
+      _assemblyGUID: 9b4c46f7430ebb94e89074c209f26faf
+  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: Nacho._Projects.SCRIPTS.Player.Input.InputListener,
+          Assembly-CSharp
+        _guid: e9245dcea54af14458def0d4b64f5cf2
+      _assemblyGUID: 4a855697a10e0034aa6dbdd3d0c6403a
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.Vector2, UnityEngine.CoreModule
+        _guid: 
+      _assemblyGUID: 2182f44c64678124c8621b09f99507dc
+    - _arguments:
+      - _typeNameAndAssembly: System.Single, mscorlib
+        _guid: 
+      _assemblyGUID: 57fad721519cabc4091f2e70f6988e84
+    - _arguments:
+      - _typeNameAndAssembly: System.Boolean, mscorlib
+        _guid: 
+      _assemblyGUID: cf13b3d1c94a8b441a117ef7e1cc5b88
+    - _arguments:
+      - _typeNameAndAssembly: System.Int32, mscorlib
+        _guid: 
+      _assemblyGUID: 2a959e928323fea40bdaa13e405acf63
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  _genericTypeValues:
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+      _guid: 35f1f711725d47ef9c32084694a183c9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+      _guid: 35f1f711725d47ef9c32084694a183c9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+      _guid: 35f1f711725d47ef9c32084694a183c9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+      _guid: 35f1f711725d47ef9c32084694a183c9
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Constant`1, GenericScriptableArchitecture
+      _guid: 05de5ab8a09d41c7adc4000e0b8c9222
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Constant`1, GenericScriptableArchitecture
+      _guid: 05de5ab8a09d41c7adc4000e0b8c9222
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+      _guid: 35f1f711725d47ef9c32084694a183c9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  _genericTypeKeys:
+  - _typeNameAndAssembly: GenericScriptableArchitecture.RuntimeSet`1, GenericScriptableArchitecture
+    _guid: c310ebaa7e1d4da39f89d2340c56c267
+    AssemblyGUID: 
+    _argNames:
+    - TUnityObject
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`1, GenericScriptableArchitecture
+    _guid: a7bc4098e6b34b50b334b6c504e7f4f5
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`2, GenericScriptableArchitecture
+    _guid: 6686166ec8d545cd81c7b3a35c553c8e
+    AssemblyGUID: 
+    _argNames:
+    - T1
+    - T2
+  - _typeNameAndAssembly: GenericScriptableArchitecture.ScriptableEvent`3, GenericScriptableArchitecture
+    _guid: fc6999967d504ffabf620e99c917c55f
+    AssemblyGUID: 
+    _argNames:
+    - T1
+    - T2
+    - T3
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Constant`1, GenericScriptableArchitecture
+    _guid: 05de5ab8a09d41c7adc4000e0b8c9222
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GenericScriptableArchitecture.VariableWithHistory`1, GenericScriptableArchitecture
+    _guid: dd7b35f1939e4c4f8bde9e3f3017e68d
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Variable`1, GenericScriptableArchitecture
+    _guid: 35f1f711725d47ef9c32084694a183c9
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`1,
+      GenericScriptableArchitecture.Timeline
+    _guid: 935ecf86bcab4cb3b1dc812da9f3c2b8
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`2,
+      GenericScriptableArchitecture.Timeline
+    _guid: 59640b2462bc4023a0d64a9cfc5d2e62
+    AssemblyGUID: 
+    _argNames:
+    - T1
+    - T2
+  - _typeNameAndAssembly: GenericScriptableArchitecture.Timeline.ScriptableEventEmitter`3,
+      GenericScriptableArchitecture.Timeline
+    _guid: d56b5b320bb047d385036ac707243b33
+    AssemblyGUID: 
+    _argNames:
+    - T1
+    - T2
+    - T3
+  - _typeNameAndAssembly: UnityEditor.Rendering.DebugState`1, Unity.RenderPipelines.Core.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Unity.Cloud.Collaborate.Common.ScriptableObjectSingleton`1,
+      Unity.CollabProxy.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+    _guid: 211d719bb25901043833928f50e9d0ea
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+    _guid: 15ef94834d9e4aa44ac8fe619843346b
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePath`1,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePathInspector`2,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - U
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Unity.Postprocessing.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T

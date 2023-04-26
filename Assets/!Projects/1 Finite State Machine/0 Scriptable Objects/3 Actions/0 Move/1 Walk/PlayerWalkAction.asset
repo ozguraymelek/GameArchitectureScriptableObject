@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c2e241bcc34fe499af54dc91bfe114, type: 3}
+  m_Name: PlayerWalkAction
+  m_EditorClassIdentifier: 
+  currentMovementInput: {fileID: 11400000, guid: a115c58732633d043ba1879feb8db68d,
+    type: 2}
+  appliedMovementX: {fileID: 11400000, guid: 365dbed1f6d6d3f41bc067acef140679, type: 2}
+  appliedMovementY: {fileID: 11400000, guid: 11c5f69c0219e7549945f5996a406628, type: 2}
+  appliedMovementZ: {fileID: 11400000, guid: 7d36fef7dd62ceb4d9e1f77e9767c479, type: 2}
+  smoothBlend: 0.1
