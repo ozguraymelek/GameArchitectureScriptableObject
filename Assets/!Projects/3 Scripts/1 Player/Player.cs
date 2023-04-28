@@ -61,7 +61,6 @@ namespace Nacho.Controller
         }
 
         #endregion
-        
     }
 
     public enum PlayerDirection

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1495521079, guid: cf13b3d1c94a8b441a117ef7e1cc5b88, type: 3}
+  m_Name: EnemyReachedActiveWaypoint
+  m_EditorClassIdentifier: 
+  _description: 
+  _initialValue: 0
+  _variableHelper:
+    StackTrace:
+      Enabled: 0
+    Value: 0
+    ListenersExpanded: 0
