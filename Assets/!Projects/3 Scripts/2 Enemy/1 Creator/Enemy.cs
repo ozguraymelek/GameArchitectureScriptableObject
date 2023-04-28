@@ -19,6 +19,6 @@ namespace Nacho.Controller
         [SerializeField] internal Animator animator;
         
         [Header("Data")]
-        public Waypoint activePoint;
+        public Point activePoint;
     }
 }

@@ -25,7 +25,7 @@ namespace Nacho.Controller.Enemies
                 });
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             CurrentState.Updating(this);
         }

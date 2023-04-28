@@ -7,23 +7,18 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 
-public class Waypoint : MonoBehaviour
+public class Point : MonoBehaviour
 {
-    public RuntimeSet<Transform> waypoints;
-    
     public Variable<bool> isEnemyReached;
 
+    [Header("Settings")]
     public float radius;
     public LayerMask mask;
     
-    public IObjectPool<Waypoint> WaypointPool { get; set; }
-
     private void FixedUpdate()
     {
         isEnemyReached.Value = Physics.CheckSphere(transform.position, radius, mask);
     }
-
-    public void ReleaseWaypoint() => WaypointPool.Release(this);
     
     private void OnDrawGizmosSelected()
     {

@@ -9,11 +9,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f1212ad1dec44ce7b7147976b91869c3157800/1c/9ba295f2/IObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/0 Helpers/0 Object Pool/PrimitiveTypePool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/0 Helpers/1 Creators/PointCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillEnemyIdleFromPatrol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillEnemyPatrolFromIdle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/3 Controllers/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/3 Controllers/Point.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/4 Animator State Machine/0 Move/EnemyIdleStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/3 Weapons/0 Melee/0 Swords/0 Gladius/GladiusVFX.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/4 Art/6 Scenes/0 Tutorial/SignedAngleExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Editor Windows/Scripts/Editor/BasicOdinEditorExampleWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Sample - RPG Editor/Scripts/Character/CharacterStats.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -73,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682519222814</updated>
       <workItem from="1682519228891" duration="16028000" />
-      <workItem from="1682606230007" duration="6841000" />
+      <workItem from="1682606230007" duration="16172000" />
     </task>
     <servers />
   </component>

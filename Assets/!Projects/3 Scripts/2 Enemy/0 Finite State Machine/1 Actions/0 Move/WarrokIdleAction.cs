@@ -12,7 +12,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     {
         public Variable<float> idleTimer; 
         
-        private PrimitiveTypePool _waypointPool;
+        private PointCreator _pointCreator;
         
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
@@ -20,8 +20,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         {
             if (ctx.activePoint != null)
             {
-                _waypointPool = FindObjectOfType<PrimitiveTypePool>();
-                _waypointPool.DeactivatePoint();
+                _pointCreator = FindObjectOfType<PointCreator>();
+                _pointCreator.DeactivatePoint();
             }
            
             ctx.animator.SetBool(IsWalking, false);

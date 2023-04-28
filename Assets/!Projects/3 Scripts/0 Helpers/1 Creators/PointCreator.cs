@@ -6,11 +6,11 @@ using UnityEngine.Pool;
 
 namespace Nacho.ObjectPools
 {
-    public class PrimitiveTypePool : MonoBehaviour
+    public class PointCreator : MonoBehaviour
     {
-        [SerializeField] private Waypoint sphere;
+        [SerializeField] private Point sphere;
 
-        private Waypoint _createdWaypoint;
+        private Point _createdPoint;
         
         [SerializeField] private int defaultCapacity;
         [SerializeField] private int maxPoolSize;
@@ -22,23 +22,23 @@ namespace Nacho.ObjectPools
 
         private void CreatePoint()
         {
-            _createdWaypoint = Instantiate(sphere, transform);
-            _createdWaypoint.gameObject.SetActive(false);
+            _createdPoint = Instantiate(sphere, transform);
+            _createdPoint.gameObject.SetActive(false);
         }
 
-        public Waypoint GetPoint()
+        public Point GetPoint()
         {
-            return _createdWaypoint;
+            return _createdPoint;
         }
 
         public void ActivatePoint()
         {
-            _createdWaypoint.gameObject.SetActive(true);
+            _createdPoint.gameObject.SetActive(true);
         }
 
         public void DeactivatePoint()
         {
-            _createdWaypoint.gameObject.SetActive(false);
+            _createdPoint.gameObject.SetActive(false);
         }
     }
 }
