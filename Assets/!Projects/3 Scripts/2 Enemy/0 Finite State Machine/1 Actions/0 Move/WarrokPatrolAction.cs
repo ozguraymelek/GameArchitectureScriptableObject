@@ -25,18 +25,28 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             ctx.animator.SetBool(IsWalking, true);
             
             input = RandomInput();
-
-            ctx.activePoint = _waypointPool.Pool.Get();
-
+            ctx.activePoint = _waypointPool.GetPoint();
             ctx.activePoint.transform.localPosition = (input * 10f) + ctx.transform.position;
+            
+            _waypointPool.ActivatePoint();
         }
 
         public override void Updating(Controller.Enemy ctx)
         {
             if (ctx.activePoint == null) return;
             
+            Move(ctx);
+            Look(ctx);
+        }
+
+        private void Move(Controller.Enemy ctx)
+        {
             ctx.rb.velocity = input * 2f;
-            
+        }
+
+        private void Look(Controller.Enemy ctx)
+        {
+            ctx.transform.LookAt(ctx.activePoint.transform.position);
         }
         
         private Vector3 RandomInput()

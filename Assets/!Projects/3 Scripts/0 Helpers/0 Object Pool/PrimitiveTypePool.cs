@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,31 +9,37 @@ namespace Nacho.ObjectPools
     public class PrimitiveTypePool : MonoBehaviour
     {
         [SerializeField] private Waypoint sphere;
+
+        private Waypoint _createdWaypoint;
         
         [SerializeField] private int defaultCapacity;
         [SerializeField] private int maxPoolSize;
-        
-        public IObjectPool<Waypoint> Pool { get; private set; }
 
         private void Awake()
         {
-            Pool = new ObjectPool<Waypoint>(CreateItem, OnTakeFromPool, OnReturnedToPool,
-                OnDestroyPoolObject, true, defaultCapacity, maxPoolSize);
+            CreatePoint();
         }
 
-        private Waypoint CreateItem()
+        private void CreatePoint()
         {
-            var instance = Instantiate(sphere, transform);
-            instance.WaypointPool = Pool;
-
-            return instance;
+            _createdWaypoint = Instantiate(sphere, transform);
+            _createdWaypoint.gameObject.SetActive(false);
         }
 
-        private void OnTakeFromPool(Waypoint obj) => obj.gameObject.SetActive(true);
-    
-        private void OnReturnedToPool(Waypoint obj) => obj.gameObject.SetActive(false);
+        public Waypoint GetPoint()
+        {
+            return _createdWaypoint;
+        }
 
-        private void OnDestroyPoolObject(Waypoint obj) => Destroy(obj.gameObject);
+        public void ActivatePoint()
+        {
+            _createdWaypoint.gameObject.SetActive(true);
+        }
+
+        public void DeactivatePoint()
+        {
+            _createdWaypoint.gameObject.SetActive(false);
+        }
     }
 }
 

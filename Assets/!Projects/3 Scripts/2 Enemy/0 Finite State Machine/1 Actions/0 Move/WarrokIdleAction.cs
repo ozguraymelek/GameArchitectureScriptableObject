@@ -21,7 +21,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             if (ctx.activePoint != null)
             {
                 _waypointPool = FindObjectOfType<PrimitiveTypePool>();
-                _waypointPool.Pool.Release(ctx.activePoint);
+                _waypointPool.DeactivatePoint();
             }
            
             ctx.animator.SetBool(IsWalking, false);
