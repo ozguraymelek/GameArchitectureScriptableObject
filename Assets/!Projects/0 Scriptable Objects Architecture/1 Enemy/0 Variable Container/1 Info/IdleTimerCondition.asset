@@ -17,5 +17,5 @@ MonoBehaviour:
   _variableHelper:
     StackTrace:
       Enabled: 0
-    Value: 0
+    Value: 1
     ListenersExpanded: 0
