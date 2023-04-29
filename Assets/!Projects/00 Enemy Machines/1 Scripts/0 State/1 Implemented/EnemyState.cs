@@ -28,7 +28,16 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             
             foreach (var transition in Transitions)
             {
-                transition.Execute(ctx);
+                if(Transitions.Count !=0)
+                    transition.Execute(ctx);
+            }
+        }
+
+        public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
+        {
+            foreach (var action in Actions)
+            {
+                action.OnDrawingGizmosSelected(ctx);
             }
         }
     }

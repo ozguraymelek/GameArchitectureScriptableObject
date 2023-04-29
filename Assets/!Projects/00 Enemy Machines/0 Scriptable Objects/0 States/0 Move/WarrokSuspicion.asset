@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: WarrokSuspicion
   m_EditorClassIdentifier: 
   Actions:
-  - {fileID: 0}
-  Transitions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 904ebcd2f8dbf4a46bac66b8c49e2015, type: 2}
+  Transitions: []

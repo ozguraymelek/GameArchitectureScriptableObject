@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52719031916b3d74391cdade32f92e76, type: 3}
   m_Name: WarrokPatrolAction
   m_EditorClassIdentifier: 
-  input: {x: 0.38294265, y: 0, z: -0.59767765}
   delay: {fileID: 11400000, guid: 7a72db28352155e4cb9ba8d3155c8c8a, type: 2}
+  isSuspicion: {fileID: 11400000, guid: caf2ec64a5020f4438b0dcae0bcd8682, type: 2}
+  suspicionRadius: {fileID: 11400000, guid: 6c5b45055b77a2440b086458ceb47a24, type: 2}
+  detectableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  input: {x: -0.98724747, y: 0, z: 0.80946815}

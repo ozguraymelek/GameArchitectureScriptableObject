@@ -13,6 +13,8 @@ namespace Nacho.Controller
         
         public EnemyBaseState CurrentState { get; set; }
 
+        public Collider[] suspicionObjects;
+        
         [Header("Components")] 
         [SerializeField] internal Rigidbody rb;
         [SerializeField] internal CapsuleCollider capsuleCollider;
@@ -20,5 +22,8 @@ namespace Nacho.Controller
         
         [Header("Data")]
         public Point activePoint;
+
+        [Header("Settings")] 
+        public GameObject questionMark;
     }
 }

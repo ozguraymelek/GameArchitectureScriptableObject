@@ -30,6 +30,13 @@ namespace Nacho.Controller.Enemies
             CurrentState.Updating(this);
         }
         
+        private void OnDrawGizmos()
+        {
+            // if (Application.isEditor == true) return;
+            
+            CurrentState.OnDrawingGizmosSelected(this);
+        }
+        
         #endregion
     }
 }

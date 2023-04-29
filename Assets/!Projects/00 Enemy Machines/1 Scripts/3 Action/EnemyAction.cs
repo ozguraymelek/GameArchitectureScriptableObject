@@ -8,5 +8,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     {
         public abstract void Onset(Controller.Enemy ctx);
         public abstract void Updating(Controller.Enemy ctx);
+        public virtual void OnDrawingGizmosSelected(Controller.Enemy ctx) { }
     }
 }
