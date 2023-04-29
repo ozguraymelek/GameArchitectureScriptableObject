@@ -10,6 +10,7 @@ public class SignedAngleExample : MonoBehaviour
     
     public Vector3 targetDirection;
     public Vector3 playerCalculateVector;
+    public float currentPlayerEulerY;
 
     public float angle;
 
@@ -20,11 +21,13 @@ public class SignedAngleExample : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             targetDirection = targetPoint.transform.position - transform.position;
             
             playerCalculateVector = transform.forward;
+
+            currentPlayerEulerY = transform.localEulerAngles.y - 360f;
             
             angle = Vector3.SignedAngle(targetDirection, 
                 playerCalculateVector, Vector3.up);
@@ -34,7 +37,7 @@ public class SignedAngleExample : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.A))
         {
-            var targetRot = Quaternion.Euler(0, -angle
+            var targetRot = Quaternion.Euler(0, currentPlayerEulerY - angle
                 , 0);
             
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2f * Time.fixedDeltaTime);

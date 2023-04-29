@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: WarrokPatrolFromIdleDecision
   m_EditorClassIdentifier: 
   idleTimer: {fileID: 11400000, guid: fbbe9ada603f9d64d80b75eecaf54d81, type: 2}
+  delay: {fileID: 11400000, guid: 7a72db28352155e4cb9ba8d3155c8c8a, type: 2}
+  delayMin: 0.5
+  delayMax: 1.5

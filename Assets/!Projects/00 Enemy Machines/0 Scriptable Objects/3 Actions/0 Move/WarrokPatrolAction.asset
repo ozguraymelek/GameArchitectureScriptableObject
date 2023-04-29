@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52719031916b3d74391cdade32f92e76, type: 3}
   m_Name: WarrokPatrolAction
   m_EditorClassIdentifier: 
-  input: {x: 0.19135803, y: 0, z: -0.91180605}
-  targetPoint: {fileID: 0}
+  input: {x: 0.38294265, y: 0, z: -0.59767765}
+  delay: {fileID: 11400000, guid: 7a72db28352155e4cb9ba8d3155c8c8a, type: 2}

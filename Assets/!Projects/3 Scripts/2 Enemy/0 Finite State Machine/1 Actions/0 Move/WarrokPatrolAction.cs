@@ -14,18 +14,23 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     {
         public Vector3 input;
         
+        public Variable<float> delay;
+        
         private PointCreator pointCreator;
 
         private Vector3 _targetDirection;
         private Vector3 _enemyCalculateVector;
         
-        private float angle;
+        private float _currentEnemyEulerY;
+        private float _angle;
         
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
         public override void Onset(Controller.Enemy ctx)
         {
             pointCreator = FindObjectOfType<PointCreator>();
+
+            delay.Value = 0;
             
             ctx.animator.SetBool(IsWalking, true);
             
@@ -39,11 +44,13 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             _targetDirection = ctx.activePoint.transform.position - ctx.transform.position;
             
             _enemyCalculateVector = ctx.transform.forward;
+            
+            _currentEnemyEulerY = ctx.transform.localEulerAngles.y - 360f;
 
-            angle = Vector3.SignedAngle(_targetDirection,
+            _angle = Vector3.SignedAngle(_targetDirection,
                 _enemyCalculateVector, Vector3.up);
             
-            Debug.Log($"Angle: {angle}");
+            Debug.Log($"Angle: {_angle}");
         }
 
         public override void Updating(Controller.Enemy ctx)
@@ -56,15 +63,15 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         private void Move(Controller.Enemy ctx)
         {
-            ctx.rb.velocity = _targetDirection * (15f * Time.fixedDeltaTime);
+            ctx.rb.velocity = _targetDirection * (10f * Time.fixedDeltaTime);
         }
 
         private void Look(Controller.Enemy ctx)
         {
-            var targetRot = Quaternion.Euler(0, -angle
+            var targetRot = Quaternion.Euler(0, _currentEnemyEulerY - _angle
                 , 0);
             
-            ctx.transform.rotation = Quaternion.Lerp(ctx.transform.rotation, targetRot, 2f * Time.fixedDeltaTime);
+            ctx.transform.rotation = Quaternion.Slerp(ctx.transform.rotation, targetRot, 1.2f * Time.fixedDeltaTime);
         }
         
         private Vector3 RandomInput()

@@ -12,12 +12,21 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     {
         public Variable<float> idleTimer; 
         
+        public Variable<float> delay;
+        
+        public float delayMin;
+        public float delayMax;
+        
+        public Variable<bool> canCounterTimer;
+        
         private PointCreator _pointCreator;
         
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
         public override void Onset(Controller.Enemy ctx)
         {
+            delay.Value = Random.Range(delayMin, delayMax);
+            
             if (ctx.activePoint != null)
             {
                 _pointCreator = FindObjectOfType<PointCreator>();
@@ -34,6 +43,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         private void Counter()
         {
+            if (canCounterTimer.Value == false) return;
+            
             idleTimer.Value += Time.deltaTime;
         }
     }
