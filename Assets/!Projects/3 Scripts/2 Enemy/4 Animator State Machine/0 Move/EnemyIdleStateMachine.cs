@@ -15,17 +15,18 @@ public class EnemyIdleStateMachine : StateMachineBehaviour
     {
         isEnemyReached.Value = false;
 
+        RoaringChance(animator);
+    }
+
+    private void RoaringChance(Animator animator)
+    {
         var rand = Random.Range(0, 100);
-
-        var lasRand = rand;
         
-        Debug.Log(rand);
-
         if (rand % 2 == 0)
         {
             canCounterTimer.Value = false;
             animator.SetTrigger(IsRoaring);
-        }else if (rand % 2 != 0 || lasRand == rand)
+        }else
             canCounterTimer.Value = true;
     }
 }
