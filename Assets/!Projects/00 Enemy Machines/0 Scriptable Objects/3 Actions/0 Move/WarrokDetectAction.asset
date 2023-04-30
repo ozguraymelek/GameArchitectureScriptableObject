@@ -19,7 +19,11 @@ MonoBehaviour:
   detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
   detectLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
+  attackRadius: {fileID: 11400000, guid: 9b76650cc827d9443abd9021bccad360, type: 2}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 256
   scaleQuestionMarkDelay: {fileID: 11400000, guid: 25a047d7e7b6bb34092b44100e8d7184,
     type: 2}
   scaleExclamationMarkDelay: {fileID: 11400000, guid: a28e24f739be51f4da80261165926aa3,

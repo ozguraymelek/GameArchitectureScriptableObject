@@ -66,7 +66,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         private void DetectRaycast(Controller.Enemy ctx)
         {
-            ctx.detectedObjects = Physics.OverlapSphere(ctx.transform.position, detectRadius.Value,
+            ctx.detectedObjects = Physics.OverlapSphere(
+                ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f), detectRadius.Value,
                 detectLayer);
         }
 

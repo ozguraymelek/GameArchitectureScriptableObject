@@ -16,6 +16,10 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         [CanBeNull] public Variable<float> detectRadius;
         public LayerMask detectLayer;
         
+        [Header("Settings /detect")]
+        [CanBeNull] public Variable<float> attackRadius;
+        public LayerMask attackLayer;
+        
         public abstract void Onset(Controller.Enemy ctx);
         public abstract void Updating(Controller.Enemy ctx);
         public virtual void OnDrawingGizmosSelected(Controller.Enemy ctx) { }

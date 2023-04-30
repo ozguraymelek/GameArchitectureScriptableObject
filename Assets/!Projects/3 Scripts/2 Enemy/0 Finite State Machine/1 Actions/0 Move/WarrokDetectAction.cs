@@ -58,6 +58,15 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             CalculateAngle(ctx);
             
             Move(ctx);
+
+            AttackRaycast(ctx);
+        }
+
+        private void AttackRaycast(Controller.Enemy ctx)
+        {
+            ctx.attackableObjects = Physics.OverlapSphere(
+                ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                attackRadius.Value, attackLayer);
         }
         
         private void Move(Controller.Enemy ctx)
@@ -119,6 +128,14 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             _angle = Vector3.SignedAngle(_targetDirection, _enemyCalculateVector, Vector3.up);
 
             LockedToTarget(ctx);
+        }
+        
+        public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
+        {
+            Gizmos.color = Color.yellow;
+
+            Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                attackRadius.Value);
         }
     }
 }

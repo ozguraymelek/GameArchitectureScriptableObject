@@ -18,6 +18,7 @@ namespace Nacho.Controller
         [Header("Objects Holder")]
         public Collider[] suspicionObjects;
         public Collider[] detectedObjects;
+        public Collider[] attackableObjects;
         
         [Space(20)]
         

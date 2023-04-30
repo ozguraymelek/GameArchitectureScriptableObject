@@ -2746,6 +2746,7 @@ MonoBehaviour:
   initialState: {fileID: 11400000, guid: e35f127361d360e4f84c573f4ac940bb, type: 2}
   suspicionObjects: []
   detectedObjects: []
+  attackableObjects: []
   rb: {fileID: 1944044644}
   capsuleCollider: {fileID: 1944044645}
   animator: {fileID: 1944044642}

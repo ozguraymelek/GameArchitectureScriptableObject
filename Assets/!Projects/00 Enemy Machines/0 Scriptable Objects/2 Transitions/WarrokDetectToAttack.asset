@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9529a7cd04e7c14aaf6faf091582432, type: 3}
+  m_Name: WarrokDetectToAttack
+  m_EditorClassIdentifier: 
+  Decision: {fileID: 11400000, guid: 897c4bb710c66fa4898471a79273a7ea, type: 2}
+  NewState: {fileID: 11400000, guid: 87aaf5c4f3e855a499252d229a18fa2d, type: 2}
+  StayState: {fileID: 11400000, guid: 961c0a66ebbd33840bf83c89715bad4f, type: 2}
