@@ -71,8 +71,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         private void Look(Controller.Enemy ctx)
         {
-            var targetRot = Quaternion.Euler(0, _currentEnemyEulerY - _angle
-                , 0);
+            var targetRot = Quaternion.Euler(0f, _currentEnemyEulerY - _angle
+                , 0f);
             
             ctx.transform.rotation = Quaternion.Slerp(ctx.transform.rotation, targetRot, 1.2f * Time.fixedDeltaTime);
         }
