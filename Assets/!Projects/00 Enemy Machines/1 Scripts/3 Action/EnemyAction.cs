@@ -24,9 +24,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         {
             ctx.suspicionObjects = Physics.OverlapSphere(ctx.transform.position, suspicionRadius.Value,
                 suspicionLayer);
-
-            ctx.detectedObjects = Physics.OverlapSphere(ctx.transform.position, detectRadius.Value,
-                detectLayer);
         }
     }
 }

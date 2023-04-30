@@ -46,6 +46,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         {
             base.Raycast(ctx);
             
+            if (ctx.detectedObjects.Length == 0)
+            {
+                DetectRaycast(ctx);
+            }
+            
             if (ctx.questionMark.activeSelf == true)
             {
                 ctx.questionMark.transform.Rotate(new Vector3(0f, 5f, 0f),
@@ -57,6 +62,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             LockedToTarget(ctx);
 
             DetectCounter();
+        }
+        
+        private void DetectRaycast(Controller.Enemy ctx)
+        {
+            ctx.detectedObjects = Physics.OverlapSphere(ctx.transform.position, detectRadius.Value,
+                detectLayer);
         }
 
         private void ScalingQuestionMark(Controller.Enemy ctx)

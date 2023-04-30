@@ -43,6 +43,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             Array.Clear(ctx.suspicionObjects, 0, ctx.suspicionObjects.Length);
             
             ChangeTargetLayer(ctx);
+            
+            ctx.animator.SetBool(IsDetected, true);
         }
 
         public override void Updating(Controller.Enemy ctx)
@@ -52,14 +54,15 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
                 ctx.exclamationMark.transform.Rotate(new Vector3(0f, 15f, 0f),
                     Space.Self);
             }
-
+            
             CalculateAngle(ctx);
+            
             Move(ctx);
         }
         
         private void Move(Controller.Enemy ctx)
         {
-            ctx.rb.velocity = _targetDirection * (15f * Time.fixedDeltaTime);
+            ctx.rb.velocity = _targetDirection * (12.5f * Time.fixedDeltaTime);
         }
         
         private void UnscalingQuestionMark(Controller.Enemy ctx)
@@ -90,8 +93,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
                     ctx.exclamationMark.transform.DOShakePosition(shakeDelay, shakePosStrength, 
                         shakePosVibration,180f))
                 .SetLoops(-1);
-
-            ctx.animator.SetBool(IsDetected, true);
         }
         
         private void ChangeTargetLayer(Controller.Enemy ctx)
@@ -104,7 +105,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             var targetRot = Quaternion.Euler(0f, _currentEnemyEulerY - _angle, 0f);
 
             ctx.transform.rotation = Quaternion.Slerp(ctx.transform.rotation, targetRot, 
-                1.75f * Time.deltaTime);
+                1.5f * Time.deltaTime);
         }
         
         private void CalculateAngle(Controller.Enemy ctx)
