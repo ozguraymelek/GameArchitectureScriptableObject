@@ -20,12 +20,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         public Variable<float> detectableTimer;
 
         [Header("Settings /question mark")]
-        public float scaleDelay;
+        public Variable<float> scaleQuestionMarkDelay;
         public float shakeDelay;
-        public float shakeScaleDelay;
+        public float shakeScaleStrength;
         public int shakeScaleVibration;
 
-        [Header("Settings /animation keyword")]
+        [Header("Settings /animation keywords")]
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
         private static readonly int SuspicionValue = Animator.StringToHash("Suspicion Value");
 
@@ -38,11 +38,13 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             ScalingQuestionMark(ctx);
             
             CalculateAngle(ctx);
+
+            ChangeTargetLayer(ctx);
         }
 
         public override void Updating(Controller.Enemy ctx)
         {
-            base.Raycast(ctx); //for suspicion
+            base.Raycast(ctx);
             
             if (ctx.questionMark.activeSelf == true)
             {
@@ -54,7 +56,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             
             LockedToTarget(ctx);
 
-            // Detectable(); suspicion to detect
+            DetectCounter();
         }
 
         private void ScalingQuestionMark(Controller.Enemy ctx)
@@ -63,12 +65,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             
             ctx.questionMark.SetActive(true);
 
-            seq.Append(ctx.questionMark.transform.DOScale(new Vector3(1f, 1f, 1f), scaleDelay));
+            seq.Append(ctx.questionMark.transform.DOScale(new Vector3(1f, 1f, 1f), scaleQuestionMarkDelay.Value));
 
             ctx.questionMark.transform.localScale = new Vector3(1f, 1f, 1f);
             
             seq.Append(
-                    ctx.questionMark.transform.DOShakeScale(shakeDelay, shakeScaleDelay, 
+                    ctx.questionMark.transform.DOShakeScale(shakeDelay, shakeScaleStrength, 
                         shakeScaleVibration))
                 .SetLoops(-1);
         }
@@ -92,13 +94,22 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             _angle = Vector3.SignedAngle(_targetDirection, _enemyCalculateVector, Vector3.up);
         }
 
-        private void Detectable()
+        private void DetectCounter()
         {
-            // detectableTimer.Value += Time.deltaTime;
-            // suspicion to detect
-            // [Header("Settings /detect")] 
-            // public Variable<float> detectableTimer;
-            // public float lengthOfStay;
+            detectableTimer.Value += Time.deltaTime;
+        }
+
+        private void ChangeTargetLayer(Controller.Enemy ctx)
+        {
+            ctx.suspicionObjects[0].gameObject.layer = LayerMask.NameToLayer("Suspected");
+        }
+        
+        public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
+        {
+            Gizmos.color = Color.blue;
+
+            Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                detectRadius.Value);
         }
     }
 }

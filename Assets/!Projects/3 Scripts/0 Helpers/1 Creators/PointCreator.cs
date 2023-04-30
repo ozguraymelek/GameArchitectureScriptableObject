@@ -11,9 +11,6 @@ namespace Nacho.ObjectPools
         [SerializeField] private Point sphere;
 
         private Point _createdPoint;
-        
-        [SerializeField] private int defaultCapacity;
-        [SerializeField] private int maxPoolSize;
 
         private void Awake()
         {

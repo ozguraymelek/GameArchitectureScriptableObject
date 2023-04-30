@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using GenericScriptableArchitecture;
 using Nacho.ObjectPools;
 using UniRx;
@@ -26,12 +27,19 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         private float _currentEnemyEulerY;
         private float _angle;
         
+        [Header("Settings /question mark")]
+        public float scaleDelay;
+        
+        [Header("Settings /animation keywords")]
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
         public override void Onset(Controller.Enemy ctx)
         {
             pointCreator = FindObjectOfType<PointCreator>();
 
+            if (ctx.questionMark.activeSelf == true)
+                UnscalingQuestionMark(ctx);
+            
             delay.Value = 0;
             
             ctx.animator.SetBool(IsWalking, true);
@@ -98,6 +106,18 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             return randInput;
         }
         
+        private void UnscalingQuestionMark(Controller.Enemy ctx)
+        {
+            var seq = DOTween.Sequence();
+            
+            seq.Append(ctx.questionMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleDelay));
+            
+            seq.AppendCallback(() =>
+            {
+                ctx.questionMark.SetActive(false);
+            });
+        }
+        
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
         {
             Gizmos.color = Color.green;
@@ -105,6 +125,5 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 suspicionRadius.Value);
         }
-        
     }
 }

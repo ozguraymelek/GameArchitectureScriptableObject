@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1290113970, guid: 57fad721519cabc4091f2e70f6988e84, type: 3}
-  m_Name: WarrokSuspicionTimer
+  m_Name: WarrokDetectTimer
   m_EditorClassIdentifier: 
   _description: 
   _initialValue: 0

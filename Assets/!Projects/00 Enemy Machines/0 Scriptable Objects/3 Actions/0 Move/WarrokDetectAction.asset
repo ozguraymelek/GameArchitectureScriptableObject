@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f217106d7be8f41b8dbcab7ee0dd06, type: 3}
-  m_Name: WarrokSuspicionAction
+  m_Script: {fileID: 11500000, guid: 5e689f0b368313c40b2438945ac86e77, type: 3}
+  m_Name: WarrokDetectAction
   m_EditorClassIdentifier: 
   suspicionRadius: {fileID: 11400000, guid: 6c5b45055b77a2440b086458ceb47a24, type: 2}
   suspicionLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
   detectLayer:
     serializedVersion: 2
     m_Bits: 128
-  detectableTimer: {fileID: 11400000, guid: 0a6f6b6f5c39ec74b82b7b38b45b3b0b, type: 2}
   scaleQuestionMarkDelay: {fileID: 11400000, guid: 25a047d7e7b6bb34092b44100e8d7184,
     type: 2}
-  shakeDelay: 0.75
-  shakeScaleDelay: 1.5
-  shakeScaleVibration: 10
+  scaleExclamationMarkDelay: {fileID: 11400000, guid: a28e24f739be51f4da80261165926aa3,
+    type: 2}
+  shakeDelay: 0
+  shakeScaleDelay: 0
+  shakeScaleVibration: 0

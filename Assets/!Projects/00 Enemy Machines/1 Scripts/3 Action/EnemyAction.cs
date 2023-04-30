@@ -10,7 +10,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     {
         [Header("Settings /suspicion")]
         [CanBeNull] public Variable<float> suspicionRadius;
-        public LayerMask detectableLayer;
+        public LayerMask suspicionLayer;
+        
+        [Header("Settings /detect")]
+        [CanBeNull] public Variable<float> detectRadius;
+        public LayerMask detectLayer;
         
         public abstract void Onset(Controller.Enemy ctx);
         public abstract void Updating(Controller.Enemy ctx);
@@ -19,7 +23,10 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         protected virtual void Raycast(Controller.Enemy ctx)
         {
             ctx.suspicionObjects = Physics.OverlapSphere(ctx.transform.position, suspicionRadius.Value,
-                detectableLayer);
+                suspicionLayer);
+
+            ctx.detectedObjects = Physics.OverlapSphere(ctx.transform.position, detectRadius.Value,
+                detectLayer);
         }
     }
 }

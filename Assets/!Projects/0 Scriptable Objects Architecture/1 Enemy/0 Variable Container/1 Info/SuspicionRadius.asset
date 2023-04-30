@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SuspicionRadius
   m_EditorClassIdentifier: 
   _description: 
-  _initialValue: 19.57
+  _initialValue: 20
   _variableHelper:
     StackTrace:
       Enabled: 0
-    Value: 19.57
+    Value: 20
     ListenersExpanded: 0

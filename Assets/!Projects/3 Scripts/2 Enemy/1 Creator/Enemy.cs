@@ -35,5 +35,6 @@ namespace Nacho.Controller
 
         [Header("Settings")] 
         public GameObject questionMark;
+        public GameObject exclamationMark;
     }
 }
