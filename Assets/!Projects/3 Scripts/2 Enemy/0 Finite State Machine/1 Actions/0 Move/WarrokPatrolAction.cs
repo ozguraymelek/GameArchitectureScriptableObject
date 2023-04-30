@@ -18,11 +18,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         [Header("Settings /transition")]
         public Variable<float> delay;
-
-        [Header("Settings /suspicion")]
-        public Variable<bool> isSuspicion;
-        public Variable<float> suspicionRadius;
-        public LayerMask detectableLayer;
         
         [Header("Settings /patrol")]
         public Vector3 input;
@@ -50,18 +45,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Updating(Controller.Enemy ctx)
         {
-            Suspicion(ctx);
+            base.Raycast(ctx);
             
             if (ctx.activePoint == null) return;
             
             Look(ctx);
             Move(ctx);
-        }
-
-        private void Suspicion(Controller.Enemy ctx)
-        {
-            ctx.suspicionObjects = Physics.OverlapSphere(ctx.transform.position, suspicionRadius.Value,
-                detectableLayer);
         }
         
         private void Move(Controller.Enemy ctx)

@@ -12,6 +12,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/0 Helpers/1 Creators/PointCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokIdleFromPatrol.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokPatrolFromIdle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokPatrolFromSuspicion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/3 Controllers/Point.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/4 Animator State Machine/0 Move/EnemyIdleStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/3 Weapons/0 Melee/0 Swords/0 Gladius/GladiusVFX.cs" root0="FORCE_HIGHLIGHTING" />

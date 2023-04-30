@@ -27,13 +27,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         [Header("Settings /animation keyword")]
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
-        private static readonly int IsTurning = Animator.StringToHash("IsTurning");
         private static readonly int SuspicionValue = Animator.StringToHash("Suspicion Value");
 
         public override void Onset(Controller.Enemy ctx)
         {
             ctx.animator.SetBool(IsWalking, false);
-            // ctx.animator.SetBool(IsTurning, true);
             
             ctx.rb.velocity = Vector3.zero;
             
@@ -44,6 +42,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Updating(Controller.Enemy ctx)
         {
+            base.Raycast(ctx); //for suspicion
+            
             if (ctx.questionMark.activeSelf == true)
             {
                 ctx.questionMark.transform.Rotate(new Vector3(0f, 5f, 0f),
@@ -54,7 +54,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             
             LockedToTarget(ctx);
 
-            Detectable();
+            // Detectable(); suspicion to detect
         }
 
         private void ScalingQuestionMark(Controller.Enemy ctx)
@@ -94,7 +94,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         private void Detectable()
         {
-            detectableTimer.Value += Time.deltaTime;
+            // detectableTimer.Value += Time.deltaTime;
+            // suspicion to detect
+            // [Header("Settings /detect")] 
+            // public Variable<float> detectableTimer;
+            // public float lengthOfStay;
         }
     }
 }

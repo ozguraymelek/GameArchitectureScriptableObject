@@ -22,7 +22,7 @@ public class EnemyIdleStateMachine : StateMachineBehaviour
     {
         var rand = Random.Range(0, 100);
         
-        if (rand % 2 == 0)
+        if (rand % 2 == 0 && rand % 3 == 0)
         {
             canCounterTimer.Value = false;
             animator.SetTrigger(IsRoaring);
