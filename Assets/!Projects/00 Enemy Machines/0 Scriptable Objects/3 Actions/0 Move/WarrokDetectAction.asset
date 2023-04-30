@@ -24,6 +24,7 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 256
+  detectableTimer: {fileID: 11400000, guid: 0a6f6b6f5c39ec74b82b7b38b45b3b0b, type: 2}
   scaleQuestionMarkDelay: {fileID: 11400000, guid: 25a047d7e7b6bb34092b44100e8d7184,
     type: 2}
   scaleExclamationMarkDelay: {fileID: 11400000, guid: a28e24f739be51f4da80261165926aa3,

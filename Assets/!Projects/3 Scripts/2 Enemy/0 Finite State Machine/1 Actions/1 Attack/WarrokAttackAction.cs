@@ -32,7 +32,15 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         private void ChangeTargetLayer(Controller.Enemy ctx)
         {
-            ctx.detectedObjects[0].gameObject.layer = LayerMask.NameToLayer("Attackable");
+            ctx.attackableObjects[0].gameObject.layer = LayerMask.NameToLayer("Attackable");
+        }
+        
+        public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
+        {
+            Gizmos.color = Color.yellow;
+
+            Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                attackRadius.Value);
         }
     }
 }

@@ -10,6 +10,9 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     [CreateAssetMenu(menuName = "Finite State Machine/Enemy/Action/Detect", fileName = "new Detect Data")]
     public class WarrokDetectAction : EnemyAction
     {
+        [Header("Settings /detect")]
+        public Variable<float> detectableTimer;
+        
         [Header("Settings /lock")]
         private Vector3 _targetDirection;
         private Vector3 _enemyCalculateVector;
@@ -30,6 +33,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         public override void Onset(Controller.Enemy ctx)
         {
+            detectableTimer.Value = 0;
+            
             if (ctx.questionMark.activeSelf == true)
                 UnscalingQuestionMark(ctx);
 

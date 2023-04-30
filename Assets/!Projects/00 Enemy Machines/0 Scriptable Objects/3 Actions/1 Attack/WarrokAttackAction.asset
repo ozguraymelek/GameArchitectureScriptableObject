@@ -20,7 +20,7 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 0
-  attackRadius: {fileID: 0}
+  attackRadius: {fileID: 11400000, guid: 9b76650cc827d9443abd9021bccad360, type: 2}
   attackLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512

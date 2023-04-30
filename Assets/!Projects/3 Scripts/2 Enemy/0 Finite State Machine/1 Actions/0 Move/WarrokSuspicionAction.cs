@@ -46,10 +46,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         {
             base.Raycast(ctx);
             
-            if (ctx.detectedObjects.Length == 0)
-            {
-                DetectRaycast(ctx);
-            }
+            DetectRaycast(ctx);
             
             if (ctx.questionMark.activeSelf == true)
             {
