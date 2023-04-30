@@ -24,6 +24,6 @@ MonoBehaviour:
     type: 2}
   scaleExclamationMarkDelay: {fileID: 11400000, guid: a28e24f739be51f4da80261165926aa3,
     type: 2}
-  shakeDelay: 0
-  shakeScaleDelay: 0
-  shakeScaleVibration: 0
+  shakeDelay: 0.7
+  shakePosStrength: 0.1
+  shakePosVibration: 8
