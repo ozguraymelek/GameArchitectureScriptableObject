@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Nacho.Enemy.FINITE_STATE_MACHINE
 {
-    [CreateAssetMenu(menuName = "Finite State Machine/Enemy/Decision/Attack/from Detect",fileName = "new Attack from Suspicion Decision Data")]
+    [CreateAssetMenu(menuName = "Finite State Machine/Enemy/Decision/Attack/from Detect",fileName = "new Attack from Detect Decision Data")]
     public class WillWarrokAttackFromDetect : EnemyDecision
     {
         public override bool Decide(Controller.Enemy ctx)

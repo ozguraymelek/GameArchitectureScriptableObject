@@ -36,6 +36,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         [Header("Settings /animation keywords")]
         private static readonly int IsDetected = Animator.StringToHash("IsDetected");
+        private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
         
         public override void Onset(Controller.Enemy ctx)
         {
@@ -46,6 +47,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             
             ChangeTargetLayer(ctx);
             
+            ctx.animator.SetBool(IsAttacking, false);
             ctx.animator.SetBool(IsDetected, true);
         }
 

@@ -11,11 +11,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         [Header("Settings /detect")]
         public Variable<float> attackRadius;
         public LayerMask attackLayer;
-        
-        [Header("Settings /suspicion")]
-        public Variable<float> suspicionRadius;
-        public LayerMask suspicionLayer;
-        
+
         [Header("Settings /animation keywords")]
         private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
@@ -24,13 +20,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             ChangeTargetLayer(ctx);
             
             ctx.animator.SetBool(IsAttacking, true);
-
         }
 
         public override void Updating(Controller.Enemy ctx)
         {
             AttackRaycast(ctx);
-            SuspicionRaycast(ctx);
         }
 
         protected override void AttackRaycast(Controller.Enemy ctx)
@@ -38,14 +32,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             ctx.attackableObjects = Physics.OverlapSphere(
                 ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 attackRadius.Value, attackLayer);
-        }
-        
-        protected override void SuspicionRaycast(Controller.Enemy ctx)
-        {
-            ctx.suspicionObjects = Physics
-                .OverlapSphere(ctx.transform.position
-                               + new Vector3(0f, ctx.transform.localScale.y, 0f),
-                    suspicionRadius.Value,suspicionLayer);
         }
         
         private void ChangeTargetLayer(Controller.Enemy ctx)

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9529a7cd04e7c14aaf6faf091582432, type: 3}
-  m_Name: WarrokAttackToSuspicion
+  m_Name: WarrokAttackToDetect
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: 59bac5b6b114b8642b272b4966e1b048, type: 2}
-  NewState: {fileID: 11400000, guid: 51509c29971591d40ae8480e98c3bc09, type: 2}
-  StayState: {fileID: 11400000, guid: 961c0a66ebbd33840bf83c89715bad4f, type: 2}
+  Decision: {fileID: 0}
+  NewState: {fileID: 0}
+  StayState: {fileID: 0}
