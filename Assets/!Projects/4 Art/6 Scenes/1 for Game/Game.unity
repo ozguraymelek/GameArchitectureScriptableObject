@@ -296,20 +296,6 @@ MonoBehaviour:
   rb: {fileID: 362742348}
   playerVirtualCamera: {fileID: 1942212367}
   activeVFX: {fileID: 0}
-  scaleSuspectedMarkDelay: 1
-  rotateSuspectedMarkEndValue: {x: -45, y: 180, z: 0}
-  rotateSuspectedMarkDelay: 25
-  shakeSuspectedDelay: 0.7
-  shakeSuspectedPosStrength: 0.1
-  shakeSuspectedPosVibration: 8
-  scaleRevealedMarkDelay: 0.5
-  rotateRevealedMarkEndValue: {x: 45, y: 180, z: 0}
-  rotateRevealedMarkDelay: 35
-  shakeRevealedDelay: 0.5
-  shakeRevealedPosStrength: 0.1
-  shakeRevealedPosVibration: 9
-  suspectedMark: {fileID: 919132147644418016}
-  revealedMark: {fileID: 919132148544240116}
   playerCurrentDirection: 1
   isSuspected: {fileID: 11400000, guid: 75c34a53fccfced49a2441349f8c988f, type: 2}
   isDetected: {fileID: 11400000, guid: 674567fdadb3c294aa83554806807db3, type: 2}
@@ -2382,6 +2368,7 @@ GameObject:
   - component: {fileID: 1841542536}
   - component: {fileID: 1841542535}
   - component: {fileID: 1841542534}
+  - component: {fileID: 1841542537}
   m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
@@ -2472,6 +2459,33 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1841542537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841542532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1c34ee2520a7e4ebbd28bc1945f508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suspectedMark: {fileID: 919132147644418016}
+  revealedMark: {fileID: 919132148544240116}
+  suspectedMarkMat: {fileID: 2100000, guid: 6780ea8772426a0488ea0663911bce77, type: 2}
+  revealedMarkMat: {fileID: 0}
+  isSuspected: {fileID: 11400000, guid: 75c34a53fccfced49a2441349f8c988f, type: 2}
+  isDetected: {fileID: 11400000, guid: 674567fdadb3c294aa83554806807db3, type: 2}
+  scaleSuspectedMarkDelay: 0.3
+  shakeSuspectedDelay: 0.7
+  shakeSuspectedPosStrength: 0.1
+  shakeSuspectedPosVibration: 8
+  scaleRevealedMarkDelay: 0.5
+  shakeRevealedDelay: 0.5
+  shakeRevealedPosStrength: 0.2
+  shakeRevealedPosVibration: 10
+  detectableTimer: {fileID: 11400000, guid: 0a6f6b6f5c39ec74b82b7b38b45b3b0b, type: 2}
 --- !u!1 &1867649529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,7 +2754,7 @@ Transform:
   - {fileID: 2091431404}
   m_Father: {fileID: 1096962308}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 12, y: 0.21, z: 0}
 --- !u!114 &1942212367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3498,7 +3512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147644418016}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4649,7 +4663,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 6780ea8772426a0488ea0663911bce77, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

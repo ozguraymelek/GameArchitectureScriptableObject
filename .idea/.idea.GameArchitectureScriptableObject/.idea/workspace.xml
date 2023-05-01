@@ -10,6 +10,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f1212ad1dec44ce7b7147976b91869c3157800/1c/9ba295f2/IObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/0 Helpers/1 Creators/PointCreator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/1 Player/MarkDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokDetectFromAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokDetectFromSuspicion.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokIdleFromPatrol.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,7 +82,7 @@
       <workItem from="1682519228891" duration="16028000" />
       <workItem from="1682606230007" duration="21595000" />
       <workItem from="1682732968933" duration="11797000" />
-      <workItem from="1682880360012" duration="28017000" />
+      <workItem from="1682880360012" duration="29824000" />
     </task>
     <servers />
   </component>
