@@ -44,16 +44,27 @@ public class MarkDetector : MonoBehaviour
     [Space(20)]
     
     [Header("Settings /detect")]
-    public Variable<float> detectableTimer;
+    public Variable<float> lengthOfStayTime;
 
     private void Start()
     {
         this.ObserveEveryValueChanged(_ => isSuspected.Value).Subscribe(unit =>
         {
             if (isSuspected.Value == true)
+            {
                 ScalingSuspectedMark();
+                
+                DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, lengthOfStayTime.InitialValue,
+                    v => suspectedMarkMat.SetFloat("_Progress_Border", v));
+            }
+                
             else
+            {
                 UnscalingSuspectedMark();
+
+                
+            }
+                
         });
             
         this.ObserveEveryValueChanged(_ => isDetected.Value).Subscribe(unit =>
@@ -63,20 +74,6 @@ public class MarkDetector : MonoBehaviour
             else
                 UnscalingRevealedMark();
         });
-
-        this.ObserveEveryValueChanged(_ => suspectedMark.activeSelf).Where(_ => suspectedMark.activeSelf == true)
-            .Subscribe(unit =>
-            {
-                DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, detectableTimer.Value,
-                    v => suspectedMarkMat.SetFloat("_Progress_Border", v));
-            });
-        
-        // this.ObserveEveryValueChanged(_ => suspectedMark.activeSelf).Where(_ => suspectedMark.activeSelf == false)
-        //     .Subscribe(unit =>
-        //     {
-        //         DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), 1.1f, .1f,
-        //             v => suspectedMarkMat.SetFloat("_Progress_Border", v));
-        //     });
     }
     
     #region Priv Funcs
@@ -100,8 +97,10 @@ public class MarkDetector : MonoBehaviour
             private void UnscalingSuspectedMark()
             {
                 var seq = DOTween.Sequence();
-    
-                seq.Append(suspectedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleSuspectedMarkDelay * 15f));
+
+                suspectedMarkMat.SetFloat("_Progress_Border", 1.2f);
+                
+                seq.Append(suspectedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleSuspectedMarkDelay * 1f / 2f));
                 
                 seq.AppendCallback(() =>
                 {
@@ -130,8 +129,8 @@ public class MarkDetector : MonoBehaviour
             private void UnscalingRevealedMark()
             {
                 var seq = DOTween.Sequence();
-    
-                seq.Append(revealedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleRevealedMarkDelay * 15f));
+
+                seq.Append(revealedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleRevealedMarkDelay * 1f / 2f));
                 
                 seq.AppendCallback(() =>
                 {

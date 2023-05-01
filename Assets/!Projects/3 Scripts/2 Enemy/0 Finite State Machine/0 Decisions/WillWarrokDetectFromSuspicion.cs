@@ -10,11 +10,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     {
         [Header("Settings /detect")]
         public Variable<float> detectableTimer;
-        public float lengthOfStayTime;
+        public Variable<float> lengthOfStayTime;
         
         public override bool Decide(Controller.Enemy ctx)
         {
-            var check = detectableTimer.Value >= lengthOfStayTime || ctx.detectedObjects.Length != 0;
+            var check = detectableTimer.Value >= lengthOfStayTime.Value || ctx.detectedObjects.Length != 0;
             
             return check;
         }

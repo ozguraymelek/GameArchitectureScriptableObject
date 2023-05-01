@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WarrokDetectFromSuspicionDecision
   m_EditorClassIdentifier: 
   detectableTimer: {fileID: 11400000, guid: 0a6f6b6f5c39ec74b82b7b38b45b3b0b, type: 2}
-  lengthOfStayTime: 3
+  lengthOfStayTime: {fileID: 11400000, guid: 89687b8a51b5f944495c42adddac05af, type: 2}
