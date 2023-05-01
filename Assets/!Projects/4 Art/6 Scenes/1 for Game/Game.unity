@@ -296,6 +296,8 @@ MonoBehaviour:
   rb: {fileID: 362742348}
   playerVirtualCamera: {fileID: 1942212367}
   activeVFX: {fileID: 0}
+  suspectedMark: {fileID: 919132147644418016}
+  revealedMark: {fileID: 919132148544240116}
   playerCurrentDirection: 1
 --- !u!114 &362742350
 MonoBehaviour:

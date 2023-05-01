@@ -55,6 +55,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         public override void Updating(Controller.Enemy ctx)
         {
             SuspicionRaycast(ctx);
+            DetectRaycast(ctx);
             
             if (ctx.questionMark.activeSelf == true)
             {
@@ -75,6 +76,13 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
                 .OverlapSphere(ctx.transform.position
                                + new Vector3(0f, ctx.transform.localScale.y, 0f),
                     suspicionRadius.Value,suspicionLayer);
+        }
+        
+        protected override void DetectRaycast(Controller.Enemy ctx)
+        {
+            ctx.detectedObjects = Physics.OverlapSphere(
+                ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f), 
+                detectRadius.Value,detectLayer);
         }
         
         private void ScalingQuestionMark(Controller.Enemy ctx)
@@ -128,6 +136,9 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
             Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 suspicionRadius.Value);
+            
+            Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                detectRadius.Value);
         }
     }
 }

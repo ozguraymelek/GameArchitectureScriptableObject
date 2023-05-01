@@ -11,7 +11,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     public class WarrokDetectAction : EnemyAction
     {
         [Header("Settings /detect")]
-        public Variable<float> undetectableTimer;
         public Variable<float> attackRadius;
         public LayerMask attackLayer;
         
@@ -41,8 +40,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         public override void Onset(Controller.Enemy ctx)
         {
             detectableTimer.Value = 0;
-
-            // ctx.suspicionObjects[0] = null;
             
             if (ctx.questionMark.activeSelf == true)
                 UnscalingQuestionMark(ctx);
@@ -54,10 +51,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Updating(Controller.Enemy ctx)
         {
-            // UndetectableTimer();
-            
-            // AttackRaycast(ctx);
-            // DetectRaycast(ctx);
+            AttackRaycast(ctx);
             
             if (ctx.exclamationMark.activeSelf == true)
             {
@@ -76,14 +70,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
                 ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 attackRadius.Value, attackLayer);
         }
-
-        protected override void DetectRaycast(Controller.Enemy ctx)
-        {
-            ctx.detectedObjects = Physics.OverlapSphere(
-                ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f), 
-                detectRadius.Value,detectLayer);
-        }
-
+        
         private void Move(Controller.Enemy ctx)
         {
             if(ctx.detectedObjects.Length == 0)
@@ -149,20 +136,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             LockedToTarget(ctx);
         }
 
-        private void UndetectableTimer()
-        {
-            undetectableTimer.Value += Time.deltaTime;
-        }
-        
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
         {
             Gizmos.color = Color.yellow;
 
             Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 attackRadius.Value);
-            
-            Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
-                detectRadius.Value);
         }
     }
 }
