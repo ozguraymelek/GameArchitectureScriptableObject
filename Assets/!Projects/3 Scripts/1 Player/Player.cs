@@ -35,6 +35,9 @@ namespace Nacho.Controller
         [Header("Settings /player")]
         public PlayerDirection playerCurrentDirection;
 
+        public Variable<bool> isSuspected;
+        public Variable<bool> isDetected;
+
         #region Built-in Event Funcs
 
         private void Awake()

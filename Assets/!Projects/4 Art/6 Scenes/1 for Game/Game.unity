@@ -299,6 +299,8 @@ MonoBehaviour:
   suspectedMark: {fileID: 919132147644418016}
   revealedMark: {fileID: 919132148544240116}
   playerCurrentDirection: 1
+  isSuspected: {fileID: 11400000, guid: 75c34a53fccfced49a2441349f8c988f, type: 2}
+  isDetected: {fileID: 11400000, guid: 674567fdadb3c294aa83554806807db3, type: 2}
 --- !u!114 &362742350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2887,8 +2889,6 @@ MonoBehaviour:
   rb: {fileID: 1944044644}
   capsuleCollider: {fileID: 1944044645}
   animator: {fileID: 1944044642}
-  numberOfSuspectedObjects: {fileID: 11400000, guid: 7a5dba8a5486e734484fc310e13baac9,
-    type: 2}
   activePoint: {fileID: 0}
   activePlayer: {fileID: 0}
   questionMark: {fileID: 919132149464185538}

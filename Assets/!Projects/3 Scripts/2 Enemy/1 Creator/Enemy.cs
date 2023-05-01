@@ -28,8 +28,7 @@ namespace Nacho.Controller
         
         [Space(20)]
         
-        [Header("Data")]
-        public Variable<int> numberOfSuspectedObjects;
+        [Header("Data /ref")]
         public Point activePoint;
         public Player activePlayer;
         

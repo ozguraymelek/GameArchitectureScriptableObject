@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9529a7cd04e7c14aaf6faf091582432, type: 3}
   m_Name: WarrokDetectToAttack
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: 897c4bb710c66fa4898471a79273a7ea, type: 2}
+  Decision: {fileID: 11400000, guid: dde83b30fd68eee4d883e0ac0128e451, type: 2}
   NewState: {fileID: 11400000, guid: 87aaf5c4f3e855a499252d229a18fa2d, type: 2}
   StayState: {fileID: 11400000, guid: 961c0a66ebbd33840bf83c89715bad4f, type: 2}

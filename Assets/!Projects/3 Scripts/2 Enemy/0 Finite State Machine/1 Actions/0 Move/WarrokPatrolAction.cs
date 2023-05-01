@@ -58,6 +58,10 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             CalculateAngle(ctx);
 
             ChangeTargetLayer(ctx);
+
+            SetTargetVar(ctx, false);
+            
+            ctx.activePlayer = null;
         }
 
         public override void Updating(Controller.Enemy ctx)
@@ -138,6 +142,14 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             if (ctx.activePlayer == null) return;
             
             ctx.activePlayer.gameObject.layer = LayerMask.NameToLayer("Player");
+        }
+        
+        private void SetTargetVar(Controller.Enemy ctx, bool state)
+        {
+            if (ctx.activePlayer == null) return;
+            
+            ctx.activePlayer.isDetected.Value = state;
+            ctx.activePlayer.isSuspected.Value = state;
         }
         
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)

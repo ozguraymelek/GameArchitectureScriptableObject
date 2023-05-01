@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf418bd37a798245b0c50c821e04057, type: 3}
-  m_Name: WarrokAttackAction
+  m_Script: {fileID: -1495521079, guid: cf13b3d1c94a8b441a117ef7e1cc5b88, type: 3}
+  m_Name: PlayerSuspected
   m_EditorClassIdentifier: 
-  attackRadius: {fileID: 11400000, guid: 9b76650cc827d9443abd9021bccad360, type: 2}
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  _description: 
+  _initialValue: 0
+  _variableHelper:
+    StackTrace:
+      Enabled: 0
+    Value: 0
+    ListenersExpanded: 0

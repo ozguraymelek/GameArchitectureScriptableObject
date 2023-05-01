@@ -42,8 +42,16 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         {
             detectableTimer.Value = 0;
             
+            if (ctx.detectedObjects.Length == 0)
+            {
+                ctx.detectedObjects = new Collider[1];
+                ctx.detectedObjects[0] = ctx.activePlayer.GetComponent<Collider>();
+            }
+            
             if (ctx.questionMark.activeSelf == true)
                 UnscalingQuestionMark(ctx);
+            
+            SetTargetVar(ctx, true);
             
             ChangeTargetLayer(ctx);
             
@@ -115,6 +123,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         private void ChangeTargetLayer(Controller.Enemy ctx)
         {
             ctx.activePlayer.gameObject.layer = LayerMask.NameToLayer("Detected");
+        }
+        
+        private void SetTargetVar(Controller.Enemy ctx, bool state)
+        {
+            ctx.activePlayer.isDetected.Value = state;
+            ctx.activePlayer.isSuspected.Value = !state;
         }
         
         private void LockedToTarget(Controller.Enemy ctx)

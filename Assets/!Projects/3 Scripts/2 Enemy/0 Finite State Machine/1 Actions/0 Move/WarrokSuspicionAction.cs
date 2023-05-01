@@ -43,6 +43,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             
             ctx.activePlayer = ctx.suspicionObjects[0].GetComponent<Controller.Player>();
             
+            SetTargetVar(ctx, true);
+            
             ctx.rb.velocity = Vector3.zero;
             
             ScalingQuestionMark(ctx);
@@ -128,6 +130,12 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         private void ChangeTargetLayer(Controller.Enemy ctx)
         {
             ctx.activePlayer.gameObject.layer = LayerMask.NameToLayer("Suspected");
+        }
+
+        private void SetTargetVar(Controller.Enemy ctx, bool state)
+        {
+            ctx.activePlayer.isSuspected.Value = state;
+            ctx.activePlayer.isDetected.Value = !state;
         }
         
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
