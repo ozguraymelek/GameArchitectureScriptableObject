@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using DG.Tweening;
 using GenericScriptableArchitecture;
 using Nacho.FINITE_ATTACK_MACHINE;
 using Nacho.FINITE_STATE_MACHINE;
@@ -27,6 +28,22 @@ namespace Nacho.Controller
         [SerializeField] internal CinemachineVirtualCamera playerVirtualCamera;
 
         public GladiusVFX activeVFX;
+        
+        [Header("Settings /suspected mark")]
+        public float scaleSuspectedMarkDelay;
+        public Vector3 rotateSuspectedMarkEndValue;
+        public float rotateSuspectedMarkDelay;
+        public float shakeSuspectedDelay;
+        public float shakeSuspectedPosStrength;
+        public int shakeSuspectedPosVibration;
+        
+        [Header("Settings /revealed mark")]
+        public float scaleRevealedMarkDelay;
+        public Vector3 rotateRevealedMarkEndValue;
+        public float rotateRevealedMarkDelay;
+        public float shakeRevealedDelay;
+        public float shakeRevealedPosStrength;
+        public int shakeRevealedPosVibration;
         
         [Header("Settings /marks")] 
         public GameObject suspectedMark;
@@ -59,6 +76,23 @@ namespace Nacho.Controller
                 {
                     CurrentAttackState.Onset(this);
                 });
+
+            
+            this.ObserveEveryValueChanged(_ => isSuspected.Value).Subscribe(unit =>
+            {
+                if (isSuspected.Value == true)
+                    ScalingSuspectedMark();
+                else
+                    UnscalingSuspectedMark();
+            });
+            
+            this.ObserveEveryValueChanged(_ => isDetected.Value).Subscribe(unit =>
+            {
+                if (isDetected.Value == true)
+                    ScalingRevealedMark();
+                else
+                    UnscalingRevealedMark();
+            });
         }
 
         private void FixedUpdate()
@@ -66,6 +100,71 @@ namespace Nacho.Controller
             CurrentState.Updating(this);
             CurrentAttackState.Updating(this);
         }
+
+        #endregion
+
+        #region Priv Funcs
+
+        #region Suspected Mark
+
+        private void ScalingSuspectedMark()
+        {
+            var seq = DOTween.Sequence();
+            
+            suspectedMark.SetActive(true);
+
+            seq.Append(suspectedMark.transform.DOScale(new Vector3(1f, 1f, 1f), scaleSuspectedMarkDelay));
+            
+            seq.Append(
+                    suspectedMark.transform.DOShakePosition(shakeSuspectedDelay, shakeSuspectedPosStrength, 
+                        shakeSuspectedPosVibration))
+                .SetLoops(-1);
+        }
+        
+        private void UnscalingSuspectedMark()
+        {
+            var seq = DOTween.Sequence();
+
+            seq.Append(suspectedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleSuspectedMarkDelay * 15f));
+            
+            seq.AppendCallback(() =>
+            {
+                suspectedMark.SetActive(false);
+            });
+        }
+
+        #endregion
+
+        #region Revealed Mark
+
+        private void ScalingRevealedMark()
+        {
+            var seq = DOTween.Sequence();
+            
+            revealedMark.SetActive(true);
+
+            seq.Append(revealedMark.transform.DOScale(new Vector3(1f, 1f, 1f), scaleRevealedMarkDelay));
+            
+            seq.Append(
+                    revealedMark.transform.DOShakePosition(shakeRevealedDelay, shakeRevealedPosStrength, 
+                        shakeRevealedPosVibration))
+                .SetLoops(-1);
+        }
+        
+        private void UnscalingRevealedMark()
+        {
+            var seq = DOTween.Sequence();
+
+            seq.Append(revealedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleRevealedMarkDelay * 15f));
+            
+            seq.AppendCallback(() =>
+            {
+                revealedMark.SetActive(false);
+            });
+        }
+
+        #endregion
+        
 
         #endregion
     }

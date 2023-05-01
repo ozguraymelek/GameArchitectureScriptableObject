@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using GenericScriptableArchitecture;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         [Header("Settings /detect")]
         public Variable<float> attackRadius;
         public LayerMask attackLayer;
+        
+        [Header("Settings /exclamation mark")]
+        public Variable<float> scaleExclamationMarkDelay;
 
         [Header("Settings /animation keywords")]
         private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");

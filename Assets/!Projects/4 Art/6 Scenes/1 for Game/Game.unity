@@ -296,6 +296,18 @@ MonoBehaviour:
   rb: {fileID: 362742348}
   playerVirtualCamera: {fileID: 1942212367}
   activeVFX: {fileID: 0}
+  scaleSuspectedMarkDelay: 1
+  rotateSuspectedMarkEndValue: {x: -45, y: 180, z: 0}
+  rotateSuspectedMarkDelay: 25
+  shakeSuspectedDelay: 0.7
+  shakeSuspectedPosStrength: 0.1
+  shakeSuspectedPosVibration: 8
+  scaleRevealedMarkDelay: 0.5
+  rotateRevealedMarkEndValue: {x: 45, y: 180, z: 0}
+  rotateRevealedMarkDelay: 35
+  shakeRevealedDelay: 0.5
+  shakeRevealedPosStrength: 0.1
+  shakeRevealedPosVibration: 9
   suspectedMark: {fileID: 919132147644418016}
   revealedMark: {fileID: 919132148544240116}
   playerCurrentDirection: 1
@@ -3485,7 +3497,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147644418016}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
