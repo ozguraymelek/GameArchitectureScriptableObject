@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5c52c4d7d422a48b240e4469784869, type: 3}
   m_Name: WarrokIdleAction
   m_EditorClassIdentifier: 
+  detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackRadius: {fileID: 11400000, guid: 9b76650cc827d9443abd9021bccad360, type: 2}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 0
   idleTimer: {fileID: 11400000, guid: fbbe9ada603f9d64d80b75eecaf54d81, type: 2}
   delay: {fileID: 11400000, guid: 7a72db28352155e4cb9ba8d3155c8c8a, type: 2}
   delayMin: 1

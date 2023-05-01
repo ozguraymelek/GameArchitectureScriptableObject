@@ -28,6 +28,10 @@ namespace Nacho.Controller
 
         public GladiusVFX activeVFX;
         
+        [Header("Settings /marks")] 
+        public GameObject suspectedMark;
+        public GameObject revealedMark;
+        
         [Header("Settings /player")]
         public PlayerDirection playerCurrentDirection;
 

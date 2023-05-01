@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f217106d7be8f41b8dbcab7ee0dd06, type: 3}
   m_Name: WarrokSuspicionAction
   m_EditorClassIdentifier: 
-  suspicionRadius: {fileID: 11400000, guid: 6c5b45055b77a2440b086458ceb47a24, type: 2}
-  suspicionLayer:
-    serializedVersion: 2
-    m_Bits: 128
   detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
   detectLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  attackRadius: {fileID: 11400000, guid: 9b76650cc827d9443abd9021bccad360, type: 2}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  suspicionRadius: {fileID: 11400000, guid: 6c5b45055b77a2440b086458ceb47a24, type: 2}
+  suspicionLayer:
     serializedVersion: 2
     m_Bits: 128
   detectableTimer: {fileID: 11400000, guid: 0a6f6b6f5c39ec74b82b7b38b45b3b0b, type: 2}
   scaleQuestionMarkDelay: {fileID: 11400000, guid: 25a047d7e7b6bb34092b44100e8d7184,
     type: 2}
   shakeDelay: 0.75
-  shakeScaleDelay: 1.5
+  shakeScaleStrength: 0
   shakeScaleVibration: 10

@@ -15,10 +15,17 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     public class WarrokPatrolAction : EnemyAction
     {
         [Header("Ref")]
-        private PointCreator pointCreator;
+        private PointCreator _pointCreator;
         
         [Header("Settings /transition")]
         public Variable<float> delay;
+        
+        [Header("Settings /detect")]
+        public Variable<float> undetectableTimer;
+        
+        [Header("Settings /suspicion")]
+        public Variable<float> suspicionRadius;
+        public LayerMask suspicionLayer;
         
         [Header("Settings /patrol")]
         public Vector3 input;
@@ -35,8 +42,8 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Onset(Controller.Enemy ctx)
         {
-            pointCreator = FindObjectOfType<PointCreator>();
-
+            _pointCreator = FindObjectOfType<PointCreator>();
+            
             if (ctx.questionMark.activeSelf == true)
                 UnscalingQuestionMark(ctx);
             
@@ -49,18 +56,28 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             GetPoint(ctx);
 
             CalculateAngle(ctx);
+
+            ChangeTargetLayer(ctx);
         }
 
         public override void Updating(Controller.Enemy ctx)
         {
-            base.Raycast(ctx);
+            SuspicionRaycast(ctx);
             
             if (ctx.activePoint == null) return;
             
             Look(ctx);
             Move(ctx);
         }
-        
+
+        protected override void SuspicionRaycast(Controller.Enemy ctx)
+        {
+            ctx.suspicionObjects = Physics
+                .OverlapSphere(ctx.transform.position
+                                       + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                    suspicionRadius.Value,suspicionLayer);
+        }
+
         private void Move(Controller.Enemy ctx)
         {
             ctx.rb.velocity = _targetDirection * (10f * Time.fixedDeltaTime);
@@ -76,10 +93,10 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         private void GetPoint(Controller.Enemy ctx)
         {
-            ctx.activePoint = pointCreator.GetPoint();
+            ctx.activePoint = _pointCreator.GetPoint();
             ctx.activePoint.transform.localPosition = (input * 10f) + ctx.transform.position;
             
-            pointCreator.ActivatePoint();
+            _pointCreator.ActivatePoint();
         }
         
         private void CalculateAngle(Controller.Enemy ctx)
@@ -92,8 +109,6 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
             _angle = Vector3.SignedAngle(_targetDirection,
                 _enemyCalculateVector, Vector3.up);
-            
-            Debug.Log($"Angle: {_angle}");
         }
         
         private Vector3 RandomInput()
@@ -116,6 +131,13 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             {
                 ctx.questionMark.SetActive(false);
             });
+        }
+        
+        private void ChangeTargetLayer(Controller.Enemy ctx)
+        {
+            if (ctx.activePlayer == null) return;
+            
+            ctx.activePlayer.gameObject.layer = LayerMask.NameToLayer("Player");
         }
         
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)

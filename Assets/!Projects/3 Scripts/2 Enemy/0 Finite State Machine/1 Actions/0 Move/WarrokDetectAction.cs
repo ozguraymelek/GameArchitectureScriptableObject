@@ -11,6 +11,13 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     public class WarrokDetectAction : EnemyAction
     {
         [Header("Settings /detect")]
+        public Variable<float> undetectableTimer;
+        public Variable<float> attackRadius;
+        public LayerMask attackLayer;
+        
+        [Header("Settings /detect")]
+        public Variable<float> detectRadius;
+        public LayerMask detectLayer;
         public Variable<float> detectableTimer;
         
         [Header("Settings /lock")]
@@ -34,18 +41,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         public override void Onset(Controller.Enemy ctx)
         {
             detectableTimer.Value = 0;
+
+            // ctx.suspicionObjects[0] = null;
             
             if (ctx.questionMark.activeSelf == true)
                 UnscalingQuestionMark(ctx);
-
-            if (ctx.detectedObjects.Length == 0)
-            {
-                // ReSharper disable once HeapView.ObjectAllocation.Evident
-                ctx.detectedObjects = new Collider[1];
-                ctx.detectedObjects[0] = ctx.suspicionObjects[0];
-            }
-            
-            Array.Clear(ctx.suspicionObjects, 0, ctx.suspicionObjects.Length);
             
             ChangeTargetLayer(ctx);
             
@@ -54,6 +54,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Updating(Controller.Enemy ctx)
         {
+            // UndetectableTimer();
+            
+            // AttackRaycast(ctx);
+            // DetectRaycast(ctx);
+            
             if (ctx.exclamationMark.activeSelf == true)
             {
                 ctx.exclamationMark.transform.Rotate(new Vector3(0f, 15f, 0f),
@@ -63,20 +68,29 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             CalculateAngle(ctx);
             
             Move(ctx);
-
-            AttackRaycast(ctx);
         }
 
-        private void AttackRaycast(Controller.Enemy ctx)
+        protected override void AttackRaycast(Controller.Enemy ctx)
         {
             ctx.attackableObjects = Physics.OverlapSphere(
                 ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 attackRadius.Value, attackLayer);
         }
-        
+
+        protected override void DetectRaycast(Controller.Enemy ctx)
+        {
+            ctx.detectedObjects = Physics.OverlapSphere(
+                ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f), 
+                detectRadius.Value,detectLayer);
+        }
+
         private void Move(Controller.Enemy ctx)
         {
-            ctx.rb.velocity = _targetDirection * (12.5f * Time.fixedDeltaTime);
+            if(ctx.detectedObjects.Length == 0)
+                ctx.rb.velocity = _targetDirection * (8.5f * Time.fixedDeltaTime);
+            
+            else if(ctx.detectedObjects.Length != 0)
+                ctx.rb.velocity = _targetDirection * (12.5f * Time.fixedDeltaTime);
         }
         
         private void UnscalingQuestionMark(Controller.Enemy ctx)
@@ -111,7 +125,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         private void ChangeTargetLayer(Controller.Enemy ctx)
         {
-            ctx.detectedObjects[0].gameObject.layer = LayerMask.NameToLayer("Detected");
+            ctx.activePlayer.gameObject.layer = LayerMask.NameToLayer("Detected");
         }
         
         private void LockedToTarget(Controller.Enemy ctx)
@@ -124,7 +138,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         
         private void CalculateAngle(Controller.Enemy ctx)
         {
-            _targetDirection = ctx.detectedObjects[0].transform.position - ctx.transform.position;
+            _targetDirection = ctx.activePlayer.transform.position - ctx.transform.position;
 
             _enemyCalculateVector = ctx.transform.forward;
 
@@ -134,6 +148,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
             LockedToTarget(ctx);
         }
+
+        private void UndetectableTimer()
+        {
+            undetectableTimer.Value += Time.deltaTime;
+        }
         
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
         {
@@ -141,6 +160,9 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
             Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
                 attackRadius.Value);
+            
+            Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                detectRadius.Value);
         }
     }
 }

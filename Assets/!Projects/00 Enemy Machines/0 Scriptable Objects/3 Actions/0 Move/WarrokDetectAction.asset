@@ -12,16 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e689f0b368313c40b2438945ac86e77, type: 3}
   m_Name: WarrokDetectAction
   m_EditorClassIdentifier: 
-  suspicionRadius: {fileID: 11400000, guid: 6c5b45055b77a2440b086458ceb47a24, type: 2}
-  suspicionLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
-  detectLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  undetectableTimer: {fileID: 11400000, guid: 56c4a793988a45449936d99d57031534, type: 2}
   attackRadius: {fileID: 11400000, guid: 9b76650cc827d9443abd9021bccad360, type: 2}
   attackLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
+  detectLayer:
     serializedVersion: 2
     m_Bits: 256
   detectableTimer: {fileID: 11400000, guid: 0a6f6b6f5c39ec74b82b7b38b45b3b0b, type: 2}

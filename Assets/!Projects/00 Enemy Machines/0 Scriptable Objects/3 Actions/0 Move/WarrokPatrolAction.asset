@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52719031916b3d74391cdade32f92e76, type: 3}
   m_Name: WarrokPatrolAction
   m_EditorClassIdentifier: 
+  delay: {fileID: 11400000, guid: 7a72db28352155e4cb9ba8d3155c8c8a, type: 2}
+  undetectableTimer: {fileID: 11400000, guid: 56c4a793988a45449936d99d57031534, type: 2}
   suspicionRadius: {fileID: 11400000, guid: 6c5b45055b77a2440b086458ceb47a24, type: 2}
   suspicionLayer:
     serializedVersion: 2
     m_Bits: 64
-  detectRadius: {fileID: 11400000, guid: 8cc4f4fdb49205540ba2cbe46e6ea33a, type: 2}
-  detectLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  delay: {fileID: 11400000, guid: 7a72db28352155e4cb9ba8d3155c8c8a, type: 2}
-  input: {x: 0.5707526, y: 0, z: 0.026461303}
+  input: {x: -0.9285155, y: 0, z: 0.39636877}
   scaleDelay: 1.2

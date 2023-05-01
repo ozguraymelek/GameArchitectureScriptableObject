@@ -28,6 +28,7 @@ namespace Nacho.Controller.Enemies
         private void FixedUpdate()
         {
             CurrentState.Updating(this);
+            print(CurrentState);
         }
         
         private void OnDrawGizmos()

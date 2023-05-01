@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackRadius
   m_EditorClassIdentifier: 
   _description: 
-  _initialValue: 6
+  _initialValue: 3
   _variableHelper:
     StackTrace:
       Enabled: 0

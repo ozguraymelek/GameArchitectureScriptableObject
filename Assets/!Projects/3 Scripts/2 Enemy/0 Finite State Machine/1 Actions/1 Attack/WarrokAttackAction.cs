@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GenericScriptableArchitecture;
 using UnityEngine;
 
 namespace Nacho.Enemy.FINITE_STATE_MACHINE
@@ -7,6 +8,10 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
     [CreateAssetMenu(menuName = "Finite State Machine/Enemy/Action/Attack", fileName = "new Attack Data")]
     public class WarrokAttackAction : EnemyAction
     {
+        [Header("Settings /detect")]
+        public Variable<float> attackRadius;
+        public LayerMask attackLayer;
+        
         [Header("Settings /animation keywords")]
         private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
 
@@ -20,10 +25,10 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Updating(Controller.Enemy ctx)
         {
-            AttackRaycast(ctx);
+            // AttackRaycast(ctx);
         }
-        
-        private void AttackRaycast(Controller.Enemy ctx)
+
+        protected override void AttackRaycast(Controller.Enemy ctx)
         {
             ctx.attackableObjects = Physics.OverlapSphere(
                 ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),

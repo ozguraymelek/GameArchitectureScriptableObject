@@ -15,10 +15,16 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
         private Vector3 _enemyCalculateVector;
         private float _currentEnemyEulerY;
         private float _angle;
+        
+        [Header("Settings /suspicion")]
+        public Variable<float> suspicionRadius;
+        public LayerMask suspicionLayer;
 
-        [Header("Settings /detect")] 
+        [Header("Settings /detect")]
+        public Variable<float> detectRadius;
+        public LayerMask detectLayer;
         public Variable<float> detectableTimer;
-
+        
         [Header("Settings /question mark")]
         public Variable<float> scaleQuestionMarkDelay;
         public float shakeDelay;
@@ -31,7 +37,11 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Onset(Controller.Enemy ctx)
         {
+            detectableTimer.Value = 0;
+            
             ctx.animator.SetBool(IsWalking, false);
+            
+            ctx.activePlayer = ctx.suspicionObjects[0].GetComponent<Controller.Player>();
             
             ctx.rb.velocity = Vector3.zero;
             
@@ -44,9 +54,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         public override void Updating(Controller.Enemy ctx)
         {
-            base.Raycast(ctx);
-            
-            DetectRaycast(ctx);
+            SuspicionRaycast(ctx);
             
             if (ctx.questionMark.activeSelf == true)
             {
@@ -61,13 +69,14 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             DetectCounter();
         }
         
-        private void DetectRaycast(Controller.Enemy ctx)
+        protected override void SuspicionRaycast(Controller.Enemy ctx)
         {
-            ctx.detectedObjects = Physics.OverlapSphere(
-                ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f), detectRadius.Value,
-                detectLayer);
+            ctx.suspicionObjects = Physics
+                .OverlapSphere(ctx.transform.position
+                               + new Vector3(0f, ctx.transform.localScale.y, 0f),
+                    suspicionRadius.Value,suspicionLayer);
         }
-
+        
         private void ScalingQuestionMark(Controller.Enemy ctx)
         {
             var seq = DOTween.Sequence();
@@ -110,7 +119,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
 
         private void ChangeTargetLayer(Controller.Enemy ctx)
         {
-            ctx.suspicionObjects[0].gameObject.layer = LayerMask.NameToLayer("Suspected");
+            ctx.activePlayer.gameObject.layer = LayerMask.NameToLayer("Suspected");
         }
         
         public override void OnDrawingGizmosSelected(Controller.Enemy ctx)
@@ -118,7 +127,7 @@ namespace Nacho.Enemy.FINITE_STATE_MACHINE
             Gizmos.color = Color.blue;
 
             Gizmos.DrawSphere(ctx.transform.position + new Vector3(0f, ctx.transform.localScale.y, 0f),
-                detectRadius.Value);
+                suspicionRadius.Value);
         }
     }
 }

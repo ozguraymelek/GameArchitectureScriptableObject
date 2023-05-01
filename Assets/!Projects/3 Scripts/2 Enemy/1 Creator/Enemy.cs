@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GenericScriptableArchitecture;
 using Nacho.Enemy.FINITE_STATE_MACHINE;
 using UnityEngine;
 
@@ -12,11 +13,9 @@ namespace Nacho.Controller
         
         [Header("State Data Holder")] 
         [SerializeField] protected EnemyBaseState initialState;
-        
-        [Space(20)]
-        
-        [Header("Objects Holder")]
-        public Collider[] suspicionObjects;
+
+        [Space(20)] [Header("Objects Holder")] 
+        public Collider[] suspicionObjects = new Collider[1];
         public Collider[] detectedObjects;
         public Collider[] attackableObjects;
         
@@ -30,11 +29,13 @@ namespace Nacho.Controller
         [Space(20)]
         
         [Header("Data")]
+        public Variable<int> numberOfSuspectedObjects;
         public Point activePoint;
+        public Player activePlayer;
         
         [Space(20)]
 
-        [Header("Settings")] 
+        [Header("Settings /marks")] 
         public GameObject questionMark;
         public GameObject exclamationMark;
     }
