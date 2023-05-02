@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f1212ad1dec44ce7b7147976b91869c3157800/1c/9ba295f2/IObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f1212ad1dec44ce7b7147976b91869c3157800/98/5cca787b/Gizmos.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/0 Helpers/1 Creators/PointCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/1 Player/MarkDetector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/0 Decisions/WillWarrokDetectFromAttack.cs" root0="FORCE_HIGHLIGHTING" />
@@ -19,13 +20,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/0 Finite State Machine/1 Actions/0 Move/WarrokDetectAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/3 Controllers/Point.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/2 Enemy/4 Animator State Machine/0 Move/EnemyIdleStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/3 Weapons/0 Melee/0 Swords/0 Gladius/GladiusVFX.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/!Projects/3 Scripts/4 Weapons/1 Base/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/!Projects/4 Art/6 Scenes/0 Tutorial/SignedAngleExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Editor Windows/Scripts/Editor/BasicOdinEditorExampleWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Sirenix/Demos/Sample - RPG Editor/Scripts/Character/CharacterStats.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Oy3uwI83lRNbaRIV1fXsSdFotY" />
   <component name="ProjectViewState">

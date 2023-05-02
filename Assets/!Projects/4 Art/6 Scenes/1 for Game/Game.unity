@@ -296,6 +296,10 @@ MonoBehaviour:
   rb: {fileID: 362742348}
   playerVirtualCamera: {fileID: 1942212367}
   activeVFX: {fileID: 0}
+  weaponData:
+    startPoint: {fileID: 1545811570}
+    endPoint: {fileID: 581344217}
+  activeWeapon: {fileID: 0}
   playerCurrentDirection: 1
   isSuspected: {fileID: 11400000, guid: 75c34a53fccfced49a2441349f8c988f, type: 2}
   isDetected: {fileID: 11400000, guid: 674567fdadb3c294aa83554806807db3, type: 2}
@@ -591,7 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcd40f748c3ec34bab8ad5ff042588d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gladiusVfxPrefab: {fileID: 0}
+  gladiusVfxPrefab: {fileID: -2206281557396807547, guid: afe4a55614efba74fb19c46da3958cb5,
+    type: 3}
   defaultCapacity: 5
   maxPoolSize: 10
 --- !u!1 &512880675
@@ -918,6 +923,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580985075}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &581344216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581344217}
+  m_Layer: 6
+  m_Name: End Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581344217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581344216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -1.941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651580171566}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679522998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +1916,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1545811569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545811570}
+  m_Layer: 6
+  m_Name: Start Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545811570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545811569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0, z: -0.308}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651580171566}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631735427
 GameObject:
   m_ObjectHideFlags: 0

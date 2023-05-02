@@ -28,7 +28,7 @@ namespace Nacho.Controller
         [SerializeField] internal CinemachineVirtualCamera playerVirtualCamera;
 
         public GladiusVFX activeVFX;
-        
+
         [Header("Settings /player")]
         public PlayerDirection playerCurrentDirection;
         public Variable<bool> isSuspected;
@@ -65,8 +65,14 @@ namespace Nacho.Controller
         }
 
         #endregion
+
+        #region Priv Funcs
+
+       
+        #endregion
     }
 
+    
     public enum PlayerDirection
     {
         Idle,
