@@ -17,7 +17,7 @@ public class AttackBasicStateMachine : StateMachineBehaviour
         isPlayerAttacking.Value = true;
         isPlayerNotAttacking.Value = false;
         
-        SpawnVFX(animator.GetComponent<Player>());
+        // SpawnVFX(animator.GetComponent<Player>());
     }
     
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

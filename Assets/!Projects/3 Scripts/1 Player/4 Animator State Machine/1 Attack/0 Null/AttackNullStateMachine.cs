@@ -18,7 +18,7 @@ public class AttackNullStateMachine : StateMachineBehaviour
     {
         isPlayerAttacking.Value = false;
 
-        DespawnVFX(animator.GetComponent<Player>());
+        // DespawnVFX(animator.GetComponent<Player>());
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
