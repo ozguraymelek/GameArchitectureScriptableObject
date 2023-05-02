@@ -36,9 +36,6 @@ namespace Nacho._Projects.SCRIPTS.Player.Input
         public Variable<float> appliedRollX;
         public Variable<float> appliedRollZ;
         
-        
-        
-
         #endregion
         
         #region Input Info

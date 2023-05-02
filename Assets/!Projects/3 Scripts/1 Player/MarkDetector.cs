@@ -21,6 +21,8 @@ public class MarkDetector : MonoBehaviour
 
     [Header("Settings /tween")] 
     private Tween _suspectedMarkMatTween;
+    private Sequence _suspectedMarkScalingSeq;
+    private Sequence _suspectedMarkUnscalingSeq;
     
     [Space(20)]
     
@@ -95,13 +97,13 @@ public class MarkDetector : MonoBehaviour
             
             private void ScalingSuspectedMark()
             {
-                var seq = DOTween.Sequence();
+                _suspectedMarkScalingSeq = DOTween.Sequence();
                 
                 suspectedMark.SetActive(true);
     
-                seq.Append(suspectedMark.transform.DOScale(new Vector3(1f, 1f, 1f), scaleSuspectedMarkDelay));
+                _suspectedMarkScalingSeq.Append(suspectedMark.transform.DOScale(new Vector3(1f, 1f, 1f), scaleSuspectedMarkDelay));
                 
-                seq.Append(
+                _suspectedMarkScalingSeq.Append(
                         suspectedMark.transform.DOShakePosition(shakeSuspectedDelay, shakeSuspectedPosStrength, 
                             shakeSuspectedPosVibration))
                     .SetLoops(-1);
@@ -109,15 +111,18 @@ public class MarkDetector : MonoBehaviour
             
             private void UnscalingSuspectedMark()
             {
-                var seq = DOTween.Sequence();
+                _suspectedMarkUnscalingSeq = DOTween.Sequence();
 
                 suspectedMarkMat.SetFloat("_Progress_Border", 1.2f);
                 
-                seq.Append(suspectedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleSuspectedMarkDelay * 1f / 2f));
+                _suspectedMarkUnscalingSeq.Append(suspectedMark.transform.DOScale(new Vector3(0f, 0f, 0f), scaleSuspectedMarkDelay * 1f / 2f));
                 
-                seq.AppendCallback(() =>
+                _suspectedMarkUnscalingSeq.AppendCallback(() =>
                 {
                     suspectedMark.SetActive(false);
+                    
+                    _suspectedMarkScalingSeq.Kill();
+                    _suspectedMarkUnscalingSeq.Kill();
                 });
             }
     
