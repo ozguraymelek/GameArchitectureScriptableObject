@@ -18,6 +18,9 @@ public class MarkDetector : MonoBehaviour
     [Header("Components /marks")] 
     public Material suspectedMarkMat;
     public Material revealedMarkMat;
+
+    [Header("Settings /tween")] 
+    private Tween _suspectedMarkMatTween;
     
     [Space(20)]
     
@@ -53,16 +56,14 @@ public class MarkDetector : MonoBehaviour
             if (isSuspected.Value == true)
             {
                 ScalingSuspectedMark();
-                
-                // DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, lengthOfStayTime.InitialValue,
-                //     v => suspectedMarkMat.SetFloat("_Progress_Border", v));
 
-               
+                SetProgressProperty();
             }
             else
             {
                 UnscalingSuspectedMark();
-                suspectedMarkMat.SetFloat("_Progress_Border", 1.1f);
+
+                ResetProgressProperty();
             }
         });
             
@@ -75,23 +76,23 @@ public class MarkDetector : MonoBehaviour
         });
     }
 
-    private void Update()
-    {
-        if (isSuspected)
-        {
-            suspectedMarkMat.SetFloat("_Progress_Border",
-                Mathf.Lerp(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, 1.2f*Time.deltaTime));
-        }
-        else
-        {
-            suspectedMarkMat.SetFloat("_Progress_Border", 1.1f);
-        }
-    }
-
     #region Priv Funcs
     
             #region Suspected Mark
-    
+
+            private void SetProgressProperty()
+            {
+                _suspectedMarkMatTween = DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, lengthOfStayTime.InitialValue,
+                    v => suspectedMarkMat.SetFloat("_Progress_Border", v));
+            }
+            
+            private void ResetProgressProperty()
+            {
+                _suspectedMarkMatTween.Kill();
+                
+                suspectedMarkMat.SetFloat("_Progress_Border", 1.1f);
+            }
+            
             private void ScalingSuspectedMark()
             {
                 var seq = DOTween.Sequence();
