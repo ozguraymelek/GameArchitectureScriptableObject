@@ -54,17 +54,16 @@ public class MarkDetector : MonoBehaviour
             {
                 ScalingSuspectedMark();
                 
-                DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, lengthOfStayTime.InitialValue,
-                    v => suspectedMarkMat.SetFloat("_Progress_Border", v));
+                // DOVirtual.Float(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, lengthOfStayTime.InitialValue,
+                //     v => suspectedMarkMat.SetFloat("_Progress_Border", v));
+
+               
             }
-                
             else
             {
                 UnscalingSuspectedMark();
-
-                
+                suspectedMarkMat.SetFloat("_Progress_Border", 1.1f);
             }
-                
         });
             
         this.ObserveEveryValueChanged(_ => isDetected.Value).Subscribe(unit =>
@@ -75,7 +74,20 @@ public class MarkDetector : MonoBehaviour
                 UnscalingRevealedMark();
         });
     }
-    
+
+    private void Update()
+    {
+        if (isSuspected)
+        {
+            suspectedMarkMat.SetFloat("_Progress_Border",
+                Mathf.Lerp(suspectedMarkMat.GetFloat("_Progress_Border"), -1.1f, 1.2f*Time.deltaTime));
+        }
+        else
+        {
+            suspectedMarkMat.SetFloat("_Progress_Border", 1.1f);
+        }
+    }
+
     #region Priv Funcs
     
             #region Suspected Mark
